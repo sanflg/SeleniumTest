@@ -1,0 +1,33 @@
+package org.seleniumTest;
+
+import org.seleniumTest.pageObjects.GoogleHomePage;
+import org.seleniumTest.pageObjects.GoogleResultPage;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertTrue;
+
+public class GoogleSearchTest extends BaseTest{
+
+    @Test
+    void googleHomePage_searchByEnter() {
+        GoogleHomePage googleHomePage = new GoogleHomePage(driver);
+        GoogleResultPage googleResultPage = googleHomePage.searchByEnter("panda");
+        assertTrue(googleResultPage.isCurrentPage());
+        logger.info("Search with enter worked correctly.");
+    }
+
+    @Test
+    void googleHomePage_searchBySubmit() {
+        GoogleHomePage googleHomePage = new GoogleHomePage(driver);
+        GoogleResultPage googleResultPage = googleHomePage.searchBySubmit("panda");
+        assertTrue(googleResultPage.isCurrentPage());
+        logger.info("Search with submit worked correctly.");
+    }
+
+    @Test
+    void googleHomePage_searchByButton() {
+        GoogleHomePage googleHomePage = new GoogleHomePage(driver);
+        GoogleResultPage googleResultPage = googleHomePage.searchByButton("panda");
+        assertTrue(googleResultPage.isCurrentPage());
+        logger.info("Search with button worked correctly.");
+    }
+}
