@@ -1,6 +1,5 @@
 package org.seleniumTest;
 
-import org.seleniumTest.BaseTest;
 import org.seleniumTest.pageObjects.GoogleHomePage;
 import org.seleniumTest.pageObjects.GoogleResultPage;
 import org.testng.annotations.Test;
