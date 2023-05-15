@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public abstract class BasePage {
+public abstract class BasePage <T extends BasePage<T>> {
     protected final Logger logger = LogManager.getLogger(this.getClass());
     protected final WebDriver driver;
     protected final URL url;
@@ -20,12 +20,16 @@ public abstract class BasePage {
             logger.error("MalformedURLException URL generation for {}", url, e);
             throw new RuntimeException(e);
         }
-
-        driver.get(url);
         PageFactory.initElements(driver, this);
     }
 
     public boolean isCurrentPage(){
         return driver.getCurrentUrl().equals(url.toString());
+    }
+
+    @SuppressWarnings({"unchecked"})
+    public T goTo(){
+        driver.get(url.toString());
+        return (T) this;
     }
 }

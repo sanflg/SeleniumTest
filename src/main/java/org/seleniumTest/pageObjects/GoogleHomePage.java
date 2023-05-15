@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class GoogleHomePage extends BasePage {
+public class GoogleHomePage extends BasePage<GoogleHomePage> {
     @FindBy (name="q")
     protected WebElement searchBox;
     @FindBy (name="btnK")
