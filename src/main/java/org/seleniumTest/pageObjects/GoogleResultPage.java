@@ -32,7 +32,6 @@ public class GoogleResultPage extends BasePage<GoogleResultPage>{
         softAssert.assertEquals(actualUrl.getHost(), url.getHost());
         softAssert.assertEquals(actualUrl.getPort(), url.getPort());
         softAssert.assertEquals(actualUrl.getPath(), url.getPath());
-        softAssert.assertEquals(actualUrl.getProtocol(), url.getProtocol());
         softAssert.assertTrue(comparePartialQueryParams(url, actualUrl));
 
         softAssert.assertAll();

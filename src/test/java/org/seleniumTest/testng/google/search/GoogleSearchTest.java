@@ -1,9 +1,9 @@
 package org.seleniumTest.testng.google.search;
 
 import io.qameta.allure.*;
+import org.seleniumTest.BaseTest;
 import org.seleniumTest.pageObjects.GoogleHomePage;
 import org.seleniumTest.pageObjects.GoogleResultPage;
-import org.seleniumTest.BaseTest;
 import org.testng.annotations.Test;
 
 @Epic("SearchEpic")
