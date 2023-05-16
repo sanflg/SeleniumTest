@@ -12,7 +12,6 @@ import org.testng.Reporter;
         features = {"src/test/resources/features"},
         glue = {"classpath:org.seleniumTest"}
 )
-
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     public BaseTest baseTest = new BaseTest();
 

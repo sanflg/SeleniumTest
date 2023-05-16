@@ -34,6 +34,16 @@ public class GoogleSearchDefinition {
         googleResultPage = googleHomePage.searchByEnter(term);
     }
 
+    @When("User does a submit search with term {}")
+    public void userDoesASubmitSearchWithTerm(String term) {
+        googleResultPage = googleHomePage.searchBySubmit(term);
+    }
+
+    @When("User does an enter search with term {}")
+    public void userDoesAnEnterSearchWithTerm(String term) {
+        googleResultPage = googleHomePage.searchByEnter(term);
+    }
+
     @Then("User is in correct search tab")
     public void userIsInCorrectSearchTab() {
         googleResultPage.isCurrentPage();
