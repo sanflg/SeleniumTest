@@ -2,3 +2,4 @@
 /target
 /src/main/resources/Log.log
 SeleniumTest.iml
+allure-results

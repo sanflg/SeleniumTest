@@ -1,11 +1,13 @@
 package org.seleniumTest.pageObjects;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import java.net.MalformedURLException;
 import java.net.URL;
+import static org.testng.Assert.assertEquals;
 
 public abstract class BasePage <T extends BasePage<T>> {
     protected final Logger logger = LogManager.getLogger(this.getClass());
@@ -23,8 +25,9 @@ public abstract class BasePage <T extends BasePage<T>> {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isCurrentPage(){
-        return driver.getCurrentUrl().equals(url.toString());
+    @Step ("Check that the current driver url is the same as the desired at the instantiation moment.")
+    public void isCurrentPage(){
+        assertEquals(driver.getCurrentUrl(), url.toString());
     }
 
     /**
@@ -36,6 +39,7 @@ public abstract class BasePage <T extends BasePage<T>> {
      * @return <T> generic instance of BasePage <T extends BasePage<T>>.
      */
     @SuppressWarnings({"unchecked"})
+    @Step ("Go to the desired url by page instantiation.")
     public T goTo(){
         driver.get(url.toString());
         return (T) this;
