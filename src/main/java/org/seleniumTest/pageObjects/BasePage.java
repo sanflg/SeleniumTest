@@ -27,6 +27,14 @@ public abstract class BasePage <T extends BasePage<T>> {
         return driver.getCurrentUrl().equals(url.toString());
     }
 
+    /**
+     * Move to the desired url declared by page instantiation, resolved as a generic of BasePage<T extends BasePage<T>>.
+     * Removed driver.get() from constructor and moved it here, returning the instance in order to decouple
+     * the instantiation from the driver action, because some other methods (such as a link click) should not be
+     * forced to invoke the target url by driver.get() but with said action.
+     *
+     * @return <T> generic instance of BasePage <T extends BasePage<T>>.
+     */
     @SuppressWarnings({"unchecked"})
     public T goTo(){
         driver.get(url.toString());
