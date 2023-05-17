@@ -1,5 +1,7 @@
 Feature: Search
 
+  Background: User is in search page
+
   Scenario Outline: Search with button
 
     Given User is in search page

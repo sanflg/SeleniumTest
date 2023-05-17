@@ -1,29 +1,29 @@
 package org.seleniumTest.pageObjects;
 
-import static org.seleniumTest.utils.PageUtils.comparePartialQueryParams;
+import static org.seleniumTest.utils.PageUtils.queryParamsPresent;
+
+import java.net.URL;
+import java.net.MalformedURLException;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class GoogleResultPage extends BasePage<GoogleResultPage>{
+public class GoogleResultPage extends BasePage<GoogleResultPage> {
     protected final String term;
 
-    public GoogleResultPage(WebDriver driver, String term) {
-        super(driver, "https://www.google.com.ar/search?q=" + term);
+    public GoogleResultPage(String term) {
+        super("https://www.google.com.ar/search?q=" + term);
         this.term = term;
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public void isCurrentPage(){
+    public void isCurrentPage() {
         URL actualUrl;
         SoftAssert softAssert = new SoftAssert();
 
-        try { actualUrl = new URL(driver.getCurrentUrl());}
-        catch (MalformedURLException e) {
+        try {
+            actualUrl = new URL(driverManager.getDriver().getCurrentUrl());
+        } catch (MalformedURLException e) {
             logger.error("MalformedURLException building URL from driver.");
             throw new RuntimeException(e);
         }
@@ -32,7 +32,7 @@ public class GoogleResultPage extends BasePage<GoogleResultPage>{
         softAssert.assertEquals(actualUrl.getHost(), url.getHost());
         softAssert.assertEquals(actualUrl.getPort(), url.getPort());
         softAssert.assertEquals(actualUrl.getPath(), url.getPath());
-        softAssert.assertTrue(comparePartialQueryParams(url, actualUrl));
+        softAssert.assertTrue(queryParamsPresent(url, actualUrl));
 
         softAssert.assertAll();
     }

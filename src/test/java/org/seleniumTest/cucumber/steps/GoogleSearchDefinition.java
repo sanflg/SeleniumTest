@@ -1,23 +1,20 @@
-package org.seleniumTest.cucumber.stepDefinitions;
+package org.seleniumTest.cucumber.steps;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.openqa.selenium.WebDriver;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Given;
+import org.slf4j.bridge.SLF4JBridgeHandler;
+
 import org.seleniumTest.pageObjects.GoogleHomePage;
 import org.seleniumTest.pageObjects.GoogleResultPage;
-import org.slf4j.bridge.SLF4JBridgeHandler;
-import static org.seleniumTest.cucumber.runner.CucumberRunnerTests.retrieveXmlValue;
 
 @Epic("SearchEpic")
 @Feature("Search")
 public class GoogleSearchDefinition {
     public GoogleHomePage googleHomePage;
     public GoogleResultPage googleResultPage;
-    public WebDriver driver = WebDriverManager.getInstance(retrieveXmlValue("driver")).create();
 
     public GoogleSearchDefinition() {
         SLF4JBridgeHandler.removeHandlersForRootLogger();
@@ -26,7 +23,7 @@ public class GoogleSearchDefinition {
 
     @Given("User is in search page")
     public void userIsInSearchPage() {
-        googleHomePage = new GoogleHomePage(driver).goTo();
+        googleHomePage = new GoogleHomePage().goTo();
     }
 
     @When("User does a button search with term {}")
