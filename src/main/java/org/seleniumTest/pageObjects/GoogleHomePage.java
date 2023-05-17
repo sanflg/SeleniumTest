@@ -18,30 +18,20 @@ public final class GoogleHomePage extends BasePage {
         super("https://www.google.com.ar/");
     }
 
-    @Step("Search by google search button with term: '{0}'.")
-    @When("User does a button search with term {}")
-    public GoogleResultPage searchByButton(String term) {
+    @Step("Search by {0} action with term: '{1}'.")
+    //TODO Learn Gherkin
+    @When("User does a {} search with term {}")
+    public GoogleResultPage searchBy(String search, String term) {
         searchBox.sendKeys(term);
-        searchButton.submit();
+        switch (search){
+            case "button": searchButton.submit(); break;
+            case "submit": searchBox.submit(); break;
+            case "enter": searchBox.sendKeys(Keys.ENTER);; break;
+        }
         return GoogleResultPage.getResultPage(term);
     }
 
-    @Step("Search by submit action with term: '{0}'.")
-    @When("User does a submit search with term {}")
-    public GoogleResultPage searchBySubmit(String term) {
-        searchBox.sendKeys(term);
-        searchBox.submit();
-        return GoogleResultPage.getResultPage(term);
-    }
-
-    @Step("Search by enter with term: '{0}'.")
-    @When("User does an enter search with term {}")
-    public GoogleResultPage searchByEnter(String term) {
-        searchBox.sendKeys(term);
-        searchBox.sendKeys(Keys.ENTER);
-        return GoogleResultPage.getResultPage(term);
-    }
-
+    //TODO There is a way to avoid this double notation?
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     @Then("User is in correct GoogleHome tab")
     public void isCurrentPage() {isCurrentPageBase();}

@@ -1,5 +1,9 @@
 Architectural notes on GlueObjects (PageObjects with that work as glue for cucumber).
 
+***************************************************
+On GlueObjects (PageObjects with glue notation)
+***************************************************
+
 1- Inheritance.
     a- Classes with Step or Hook notations cannot be inherited, because of this is highly recommended to make them
     FINAL to avoid confusions in the future when trying to inherit them.
@@ -36,3 +40,11 @@ Architectural notes on GlueObjects (PageObjects with that work as glue for cucum
 
 5- All glue steps for the moment requires @Step and @$Hook notation in order to be consumed for allure in testNG context
     and have the cucumber hook (investigation better implementation)
+
+***************************************************
+On Allure
+***************************************************
+
+1- In order to allure to avoid consuming each cucumber example as retries, we need to parametrize the step name using
+notation like "Scenario name <variable>" and will generate a new execution for each in the report, however, this will
+take each example as a new test, to have a correct representation of test, we may need to implement Categories
