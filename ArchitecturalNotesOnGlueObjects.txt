@@ -1,0 +1,12 @@
+Architectural notes on GlueObjects (PageObjects with that work as glue for cucumber).
+
+1- Inheritance.
+    a- Classes with Step or Hook notations cannot be inherited, because of this is highly recommended to make them
+    FINAL to avoid confusions in the future when trying to inherit them.
+
+    b- Parent classes/interfaces cannot define abstract methods for children classes with Step or Hook notations,
+    cucumber doesn't support this and gives an error DuplicateStepDefinition so behavior enforcing is not allowed
+    (Created issue https://github.com/cucumber/cucumber-jvm/issues/2757)
+
+2- Instantiation and Constructors:
+    a-

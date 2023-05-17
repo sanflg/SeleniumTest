@@ -1,4 +1,4 @@
-package org.seleniumTest.cucumber.runner;
+package org.seleniumTest.cucumber;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -10,7 +10,7 @@ import org.seleniumTest.DriverManager;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        glue = {"classpath:org.seleniumTest.steps"}
+        glue = {"org.seleniumTest"}
 )
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     @BeforeAll

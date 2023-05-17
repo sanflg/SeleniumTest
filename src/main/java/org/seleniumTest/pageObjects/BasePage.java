@@ -11,8 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import org.seleniumTest.DriverManager;
 
-public abstract class BasePage<T extends BasePage<T>> {
-    protected final Logger logger = LogManager.getLogger(this.getClass());
+public abstract class BasePage {
+    protected final static Logger logger = LogManager.getLogger(BasePage.class);
     protected final DriverManager driverManager = DriverManager.getDriverManager();
     protected final URL url;
 
@@ -30,9 +30,7 @@ public abstract class BasePage<T extends BasePage<T>> {
         assertEquals(driverManager.getDriver().getCurrentUrl(), url.toString());
     }
 
-    @SuppressWarnings({"unchecked"})
-    public T goTo(String url){
+    public void goTo(String url){
         driverManager.getDriver().get(url);
-        return (T) this;
     }
 }

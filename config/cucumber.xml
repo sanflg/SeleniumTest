@@ -3,7 +3,7 @@
 <suite name="Google">
     <test name="SearchCucumber">
         <classes>
-            <class name="org.seleniumTest.cucumber.runner.CucumberRunnerTests"/>
+            <class name="org.seleniumTest.cucumber.CucumberRunnerTests"/>
         </classes>
     </test>
 
