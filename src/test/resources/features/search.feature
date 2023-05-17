@@ -3,7 +3,7 @@ Feature: Search
   @Regression
   @severity=critical
   @issue=<TT-1>
-  Scenario Outline: Search
+  Scenario Outline: Search "<term>" by <search>
 
     Given User is in search page
     When User does a <search> search with term <term>
