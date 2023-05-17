@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public final class GoogleHomePage extends BasePage {
+    //TODO Parameters for final classes assign on runtime give warning of no assignment
     @FindBy(name = "q")
     private WebElement searchBox;
     @FindBy(name = "btnK")
@@ -26,7 +27,7 @@ public final class GoogleHomePage extends BasePage {
         switch (search){
             case "button": searchButton.submit(); break;
             case "submit": searchBox.submit(); break;
-            case "enter": searchBox.sendKeys(Keys.ENTER);; break;
+            case "enter": searchBox.sendKeys(Keys.ENTER); break;
         }
         return GoogleResultPage.getResultPage(term);
     }

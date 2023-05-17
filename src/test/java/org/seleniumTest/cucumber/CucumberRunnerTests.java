@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 )
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     @BeforeAll
+    //TODO There is a way to get rid of this warning?
     public static void setupAll() {
         DriverManager.setupAll();
     }

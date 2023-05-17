@@ -19,6 +19,7 @@ public abstract class BasePage {
 
     //TODO There is a way to generify parameters declarations in testng.xml files?
     //TODO Generate profiles to run testng.xml, cucumber.xml and testng.xml + cucumber.xml
+    //TODO Fix pom failing to resolve dependencies
     public BasePage(String url) {
         try {
             this.url = new URL(url);
