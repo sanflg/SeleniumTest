@@ -25,7 +25,7 @@ public final class GoogleResultPage extends BasePage {
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     @Then("User is in correct search tab")
-    public void isCurrentPage() {
+    public void assertIsCurrentPage() {
         URL actualUrl;
         SoftAssert softAssert = new SoftAssert();
 

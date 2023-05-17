@@ -30,7 +30,7 @@ public abstract class BasePage {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
-    public void isCurrentPageBase(){
+    public void assertIsCurrentPageBase(){
         assertEquals(driverManager.getDriver().getCurrentUrl(), url.toString());
     }
 

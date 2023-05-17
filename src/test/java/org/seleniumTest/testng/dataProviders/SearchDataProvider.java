@@ -9,10 +9,11 @@ public class SearchDataProvider {
         Object[] terms = new Object[]{"panda", "staircase"};
         //TODO there is a less ugly way to do a product of 1D matrices wih daaProviders?
         Object[][] matrix = new Object[searches.length + terms.length + 1][2];
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix.length;) {
             for (int j = 0; j < 2; j++) {
-                matrix[i][1] = terms[j];
                 matrix[i][0] = searches[i/2];
+                matrix[i][1] = terms[j];
+                i++;
             }
         }
         return matrix;

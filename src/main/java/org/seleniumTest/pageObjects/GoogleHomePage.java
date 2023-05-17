@@ -35,7 +35,7 @@ public final class GoogleHomePage extends BasePage {
     //TODO There is a way to avoid this double notation?
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     @Then("User is in correct GoogleHome tab")
-    public void isCurrentPage() {isCurrentPageBase();}
+    public void assertIsCurrentPage() {assertIsCurrentPageBase();}
 
     @Step("Go to GoogleHomePage page.")
     @Given("User is in search page")

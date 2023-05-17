@@ -29,7 +29,7 @@ public class GoogleSearchTest extends BaseTest {
     public void googleHomePage_searchBy(String search, String term) {
         googleHomePage = new GoogleHomePage().goTo();
         googleResultPage = googleHomePage.searchBy(search,term);
-        googleResultPage.isCurrentPage();
+        googleResultPage.assertIsCurrentPage();
         logger.info("Search with enter worked correctly.");
     }
 }
