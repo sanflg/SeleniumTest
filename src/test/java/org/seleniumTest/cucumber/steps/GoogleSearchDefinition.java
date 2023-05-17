@@ -21,7 +21,7 @@ public class GoogleSearchDefinition {
         SLF4JBridgeHandler.install();
     }
 
-    @Given("User is in search page")
+    @Given("User is in correct starting page")
     public void userIsInSearchPage() {
         googleHomePage = new GoogleHomePage().goTo();
     }

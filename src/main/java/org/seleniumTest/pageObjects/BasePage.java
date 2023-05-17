@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import java.net.URL;
 import java.net.MalformedURLException;
 
-import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
@@ -27,15 +26,13 @@ public abstract class BasePage<T extends BasePage<T>> {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
-    @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public void isCurrentPage() {
+    public void isCurrentPageBase(){
         assertEquals(driverManager.getDriver().getCurrentUrl(), url.toString());
     }
 
     @SuppressWarnings({"unchecked"})
-    @Step("Go to the desired url by page instantiation.")
-    public T goTo() {
-        driverManager.getDriver().get(url.toString());
+    public T goTo(String url){
+        driverManager.getDriver().get(url);
         return (T) this;
     }
 }

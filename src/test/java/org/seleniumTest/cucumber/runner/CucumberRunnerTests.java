@@ -10,7 +10,7 @@ import org.seleniumTest.DriverManager;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        glue = {"classpath:org.seleniumTest"}
+        glue = {"classpath:org.seleniumTest.steps"}
 )
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     @BeforeAll
