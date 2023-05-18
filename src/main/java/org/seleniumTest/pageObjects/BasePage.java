@@ -15,7 +15,7 @@ import org.seleniumTest.DriverManager;
 public abstract class BasePage<T extends BasePage<T>> {
     //TODO 3 Check if there is allure logger to avoid duplicate login calls (log4j and allure)
     protected final static Logger logger = LogManager.getLogger(BasePage.class);
-    protected final static String domain = "https://www.google.com.ar";
+    protected final static String domain = "https://www.google.com.ar/";
     protected final URL url;
 
     //TODO 4 There is a way to generify parameters declarations in testng.xml files?
@@ -33,14 +33,12 @@ public abstract class BasePage<T extends BasePage<T>> {
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public void isCurrentPage() {
-        assertEquals(DriverManager.getDriver().getCurrentUrl(), url.toString());
+    public static void assertIsCurrentPage() {
+        assertEquals(DriverManager.getDriver().getCurrentUrl(), domain);
     }
 
-    @SuppressWarnings({"unchecked"})
     @Step("Go to the desired url by page.")
-    public T goTo() {
+    public static void goTo() {
         DriverManager.getDriver().get(domain);
-        return (T) this;
     }
 }

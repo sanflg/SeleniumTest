@@ -11,20 +11,19 @@ import org.testng.asserts.SoftAssert;
 
 public class ResultPage extends BasePage<ResultPage> {
     public static final ThreadLocal<String> termPool = new ThreadLocal<>();
-    public static final String partialUrl = domain + "/search?q=";
+    public static final String partialUrl = domain + "search?q=";
 
     public ResultPage() {super(partialUrl + termPool.get());}
 
     public ResultPage(String term) {super(partialUrl + term);}
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public void assertIsCurrentPage(String term) {
+    public static void assertIsCurrentPage(String term) {
         URL actualUrl;
         URL targetUrl;
         SoftAssert softAssert = new SoftAssert();
 
         try {
-
             actualUrl = new URL(DriverManager.getDriver().getCurrentUrl());
             targetUrl = new URL(partialUrl + term);
         } catch (MalformedURLException e) {

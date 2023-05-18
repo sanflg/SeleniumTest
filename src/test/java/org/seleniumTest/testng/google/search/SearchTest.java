@@ -19,17 +19,15 @@ import org.seleniumTest.pageObjects.ResultPage;
 @Feature("Search")
 public class SearchTest extends BaseTest {
     public static final Logger logger = LogManager.getLogger(SearchTest.class);
-    public SearchPage searchPage;
-    public ResultPage resultPage;
 
     @Test(dataProvider = "data-provider",dataProviderClass=SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
     public void googleHomePage_searchBy(String search, String term) {
-        searchPage = new SearchPage().goTo();
-        resultPage = searchPage.searchBy(search, term);
-        resultPage.assertIsCurrentPage(term);
+        SearchPage.goTo();
+        SearchPage.searchBy(search, term);
+        ResultPage.assertIsCurrentPage(term);
         logger.info("Search with enter worked correctly.");
     }
 }
