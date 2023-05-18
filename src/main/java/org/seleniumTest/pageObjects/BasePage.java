@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import org.seleniumTest.DriverManager;
 
-public abstract class BasePage {
+public abstract class BasePage implements BaseBehaviors<BasePage> {
     //TODO Check if there is allure logger to avoid duplicate login calls (log4j and allure)
     protected final static Logger logger = LogManager.getLogger(BasePage.class);
     protected final DriverManager driverManager = DriverManager.getDriverManager();
