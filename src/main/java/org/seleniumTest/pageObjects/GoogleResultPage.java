@@ -11,7 +11,7 @@ import io.qameta.allure.Step;
 import org.seleniumTest.DriverManager;
 import org.testng.asserts.SoftAssert;
 
-public final class GoogleResultPage extends BasePage {
+public final class GoogleResultPage extends BasePage<GoogleResultPage> {
     public static final ThreadLocal<String> termPool = new ThreadLocal<>();
 
     public GoogleResultPage() {
@@ -23,7 +23,8 @@ public final class GoogleResultPage extends BasePage {
         return new GoogleResultPage();
     }
 
-    @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
+    //TODO Avoid double annotation.
+//    @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     @Then("User is in correct search tab")
     public void assertIsCurrentPage() {
         URL actualUrl;
@@ -43,12 +44,5 @@ public final class GoogleResultPage extends BasePage {
         softAssert.assertTrue(queryParamsPresent(url, actualUrl));
 
         softAssert.assertAll();
-    }
-
-    @Step("Go to the GoogleResultPage page.")
-    @Given("User is in GoogleResultPage page")
-    public GoogleResultPage goTo() {
-        goTo(url.toString());
-        return this;
     }
 }

@@ -6,7 +6,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
 import org.seleniumTest.DriverManager;
-public class BaseTest implements ITestListener {
+import org.testng.annotations.Parameters;
+
+public class BaseTest {
 
     @BeforeSuite
     public static void setupAll() {

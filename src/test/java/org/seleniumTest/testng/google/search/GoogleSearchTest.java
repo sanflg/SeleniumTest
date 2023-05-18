@@ -28,7 +28,7 @@ public class GoogleSearchTest extends BaseTest {
     @Story("TT-1")
     public void googleHomePage_searchBy(String search, String term) {
         googleHomePage = new GoogleHomePage().goTo();
-        googleResultPage = googleHomePage.searchBy(search,term);
+        googleResultPage = googleHomePage.searchBy(search, term);
         googleResultPage.assertIsCurrentPage();
         logger.info("Search with enter worked correctly.");
     }

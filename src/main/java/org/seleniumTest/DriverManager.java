@@ -2,18 +2,20 @@ package org.seleniumTest;
 
 import java.util.Objects;
 
+import com.beust.jcommander.Parameter;
 import org.testng.Reporter;
 import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.Parameters;
 
 public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
     private static final  ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
     private static final DriverManager driverManager = new DriverManager();
-    private static final String driverName = xmlValue("driver");
-    private static final String maximize = xmlValue("maximize");
+    private static final String driverName = "chrome";
+    private static final String maximize = "yes";
 
     private DriverManager() {
     }

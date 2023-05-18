@@ -18,7 +18,6 @@ On GlueObjects (PageObjects with glue notation)
     constructor with 1 or more arguments. This can be sorted with multiple approaches:
         * GlueObjects are wrapper classes/children of our desired pageObjects but this leads to:
             - Class duplication for each PageObject
-            - Broken logic between the Base and the Glue class, making a responsibility mess and method definition hell
         * Init method with ThreadLocal for params and "super" call:
             - Init method is going to be called before the instantiation, requiring to be static, because the static
             environment, decided to use a threadLocal to set the desired parameter and call super constructor (can have
@@ -48,3 +47,12 @@ On Allure
 1- In order to allure to avoid consuming each cucumber example as retries, we need to parametrize the step name using
 notation like "Scenario name <variable>" and will generate a new execution for each in the report, however, this will
 take each example as a new test, to have a correct representation of test, we may need to implement Categories
+
+      | search | term      |
+      | button | panda     |
+      | button | staircase |
+      | submit | panda     |
+
+      | term      |
+      | panda     |
+      | staircase |
