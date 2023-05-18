@@ -1,8 +1,11 @@
 package org.seleniumTest;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.beust.jcommander.Parameter;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +17,7 @@ public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
     private static final  ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
     private static final DriverManager driverManager = new DriverManager();
+    // TODO fix this by before or background
     private static final String driverName = "chrome";
     private static final String maximize = "yes";
 
@@ -37,12 +41,12 @@ public class DriverManager {
         logger.info("Quited Chrome Driver");
     }
 
-    public static DriverManager getDriverManager() {
-        return driverManager;
+    public static WebElement findWebElement(By by) {
+        return getDriver().findElement(by);
     }
 
-    public WebDriver getDriver() {
-        return driverPool.get();
+    public static List<WebElement> findWebElements(By by) {
+        return getDriver().findElements(by);
     }
 
     private static String xmlValue(String key) {
@@ -51,4 +55,14 @@ public class DriverManager {
                 .getCurrentXmlTest()
                 .getParameter(key);
     }
+
+    public static DriverManager getDriverManager() {
+        return driverManager;
+    }
+
+    public static WebDriver getDriver() {
+        return driverPool.get();
+    }
+
+
 }

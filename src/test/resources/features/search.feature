@@ -10,7 +10,7 @@ Feature: Search
 
     Given User is in search page
     When User does a <search> search with <term>
-    Then User is in correct search tab
+    Then User is in correct search tab with term <term>
     Examples:
       | term      | search |
       | panda     | button |

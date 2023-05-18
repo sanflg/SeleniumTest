@@ -47,12 +47,3 @@ On Allure
 1- In order to allure to avoid consuming each cucumber example as retries, we need to parametrize the step name using
 notation like "Scenario name <variable>" and will generate a new execution for each in the report, however, this will
 take each example as a new test, to have a correct representation of test, we may need to implement Categories
-
-      | search | term      |
-      | button | panda     |
-      | button | staircase |
-      | submit | panda     |
-
-      | term      |
-      | panda     |
-      | staircase |
