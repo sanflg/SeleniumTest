@@ -13,9 +13,14 @@ public class ResultPage extends BasePage<ResultPage> {
     public static final ThreadLocal<String> termPool = new ThreadLocal<>();
     public static final String partialUrl = domain + "search?q=";
 
-    public ResultPage() {super(partialUrl + termPool.get());}
+    //TODO fix term pool mess
+    public ResultPage() {
+        super(partialUrl + termPool.get());
+    }
 
-    public ResultPage(String term) {super(partialUrl + term);}
+    public ResultPage(String term) {
+        super(partialUrl + term);
+    }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     public void assertIsCurrentPage(String term) {

@@ -30,7 +30,8 @@ On Cucumber
     promoting the decoupling of PageObjects and Step Definition classes, we recommend to have separated classes, one directory with
     the pageObjects and another with cucumber steps (specific steps for a page and common steps in a general one but
     don't inherit it, as classes with Step or Hook notations cannot be inherited as told in "GlueObjects" chapter point
-    1 in this file). Now, we need to get access to page object and this can be implemented in multiple ways:
+    1 in this file). Now, we need to get access to page object and this can be implemented having an instance of the
+    class as variable.
 
 4- Having all static methods on Step Definition classes and pageObjects: STATUS = DISCARDED
     If we are using all methods as static, also the WebElements must be, but this arises the problem that web elements
@@ -47,12 +48,15 @@ On Cucumber
     instantiated in the Step Definition class in order to work. see examples:
         https://www.programsbuzz.com/article/share-webdriver-instance-cucumber-using-picocontainer
 
+5- Set cucumber dependency scope to test to limit where we can create cucumber classes.
 
 Resume of action points on cucumber:
     * Make all Step Definition classes FINAL.
     * Check issue https://github.com/cucumber/cucumber-jvm/issues/2757 if we can rule behavior by interfaces and
         abstract classes inheritance on Step Definition classes.
     * For each page object class, there should be a Step Definition class that applies the behavior for cucumber.
+    * In step definitions classes, we need to have page objects instantiated as variable.
+    * set cucumber scope to test in pom
 
 ***************************************************
 On Selenium
@@ -60,6 +64,9 @@ On Selenium
 1- When declaring a WebElement with @FindBy notation, if we get unused/unassigned warnings, just right-click on the
     variable, click on QuickFixes and click on "Suppress unused warning if annotated by '@FindBy'" since no code
     solution can be provided here (Intellij solution)
+
+2- Make goTo methods in pageObjects static and return a new instance, in this way we can have instantiation and driver
+    get at the same time (most usual scenario)
 
 ***************************************************
 On PicoContainer
