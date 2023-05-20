@@ -1,14 +1,14 @@
 <?xml version = "1.0"encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Search">
-    <test name="Search">
+    <test name="Search" parallel="methods">
         <classes>
             <class name="org.seleniumTest.cucumber.CucumberRunnerTests"/>
         </classes>
     </test>
 
-    <!-- Anything except "yes" literal string will not maximise -->
-    <parameter name="maximize" value = "true"/>
     <!-- Supported drivers: {CHROME,FIREFOX,OPERA,EDGE,IEXPLORER,CHROMIUM,SAFARI} (required installation/binary)-->
     <parameter name="driver" value="chrome"/>
+    <!-- Anything except "yes" literal string will not maximise -->
+    <parameter name="maximize" value = "true"/>
 </suite>

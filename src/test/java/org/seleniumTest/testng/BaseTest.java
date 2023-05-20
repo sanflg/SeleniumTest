@@ -5,17 +5,20 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
 import org.seleniumTest.DriverManager;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
 
     @BeforeSuite
-    public static void setupAll() {
-        DriverManager.setupAll();
+    @Parameters({"driver"})
+    public static void setupAll(String driver) {
+        DriverManager.setupAll(driver);
     }
 
     @BeforeMethod
-    public void setup() {
-        DriverManager.getDriverManager().setup();
+    @Parameters({"driver", "maximize"})
+    public void setup(String driver, String maximize) {
+        DriverManager.getDriverManager().setup(driver, maximize);
     }
 
     @AfterMethod

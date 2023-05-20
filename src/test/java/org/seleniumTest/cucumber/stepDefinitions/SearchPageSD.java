@@ -1,4 +1,4 @@
-package org.seleniumTest.glue;
+package org.seleniumTest.cucumber.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
