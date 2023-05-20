@@ -1,14 +1,7 @@
 package org.seleniumTest.cucumber;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
-import io.cucumber.java.en.Given;
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
-
-import org.seleniumTest.DriverManager;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 //TODO Avoid repetition of cucumber scenarios in allure report
@@ -21,11 +14,6 @@ import org.testng.annotations.Test;
         plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         tags = "@Regression"
 )
-//@CucumberOptions(plugin = { "cucumberHooks.customReportListener",
-//        "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm" }, monochrome = true, glue = { "org.seleniumTest",
-//        "cucumberHooks" }, // Packagename
-//        features = { "src/test/resources/features" } // FolderName
-//)
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     //TODO Cucumber parallel
     //TODO More test cases for other suite

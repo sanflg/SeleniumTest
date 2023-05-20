@@ -6,7 +6,6 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.seleniumTest.DriverManager;
 import org.testng.asserts.SoftAssert;
 
@@ -19,7 +18,7 @@ public class ResultPage extends BasePage<ResultPage> {
     public ResultPage(String term) {super(partialUrl + term);}
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public static void assertIsCurrentPage(String term) {
+    public void assertIsCurrentPage(String term) {
         URL actualUrl;
         URL targetUrl;
         SoftAssert softAssert = new SoftAssert();

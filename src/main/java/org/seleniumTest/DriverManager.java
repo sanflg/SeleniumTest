@@ -3,7 +3,6 @@ package org.seleniumTest;
 import java.util.List;
 import java.util.Objects;
 
-import com.beust.jcommander.Parameter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
@@ -11,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.annotations.Parameters;
 
 public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
@@ -38,17 +36,11 @@ public class DriverManager {
 
     public void teardown() {
         driverPool.get().quit();
+        driverPool.remove();
         logger.info("Quited Chrome Driver");
     }
 
-    public WebElement findWebElement(By by) {
-        return getDriver().findElement(by);
-    }
-
-    public List<WebElement> findWebElements(By by) {
-        return getDriver().findElements(by);
-    }
-
+    // TODO set better variables
     private static String xmlValue(String key) {
         return Reporter.getCurrentTestResult()
                 .getTestContext()

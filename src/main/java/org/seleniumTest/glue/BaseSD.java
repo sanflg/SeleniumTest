@@ -5,6 +5,6 @@ package org.seleniumTest.glue;
  *
  * @author Santiago Lataza
  */
-public class BasePaste {
+public final class BaseSD {
 
 }

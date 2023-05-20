@@ -14,5 +14,5 @@ Feature: Search
     Examples:
       | term      | search |
       | panda     | button |
-#      | staircase | enter  |
-#      | panda     | submit |
+      | staircase | enter  |
+      | panda     | submit |

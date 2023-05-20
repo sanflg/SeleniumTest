@@ -36,12 +36,14 @@ public abstract class BasePage<T extends BasePage<T>> {
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    public static void assertIsCurrentPage() {
+    public void assertIsCurrentPage() {
         assertEquals(DriverManager.getDriver().getCurrentUrl(), domain);
     }
 
     @Step("Go to the desired url by page.")
-    public static void goTo() {
+    @SuppressWarnings({"unchecked"})
+    public T goTo() {
         DriverManager.getDriver().get(domain);
+        return (T) this;
     }
 }
