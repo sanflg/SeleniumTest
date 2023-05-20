@@ -57,6 +57,9 @@ Resume of action points on cucumber:
 ***************************************************
 On Selenium
 ***************************************************
+1- When declaring a WebElement with @FindBy notation, if we get unused/unassigned warnings, just right-click on the
+    variable, click on QuickFixes and click on "Suppress unused warning if annotated by '@FindBy'" since no code
+    solution can be provided here (Intellij solution)
 
 ***************************************************
 On PicoContainer

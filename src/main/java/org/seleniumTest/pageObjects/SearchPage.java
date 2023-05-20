@@ -13,7 +13,6 @@ import java.time.Duration;
 import java.util.List;
 
 public class SearchPage extends BasePage<SearchPage> {
-    //TODO 4 Parameters for final classes assign on runtime give warning of no assignment
     @FindBy(name = "q") private WebElement searchBox;
     @FindBy(name = "btnK") private List<WebElement> searchButton;
 
