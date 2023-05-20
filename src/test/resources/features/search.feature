@@ -1,36 +1,18 @@
 Feature: Search
 
-  Background: User is in search page
+#  https://docs.qameta.io/allure/#_cucumber_jvm
+  @Regression
+  @severity=critical
+  @issue=<TT-1>
+  Scenario Outline: Search "<term>" by <search>
 
-  Scenario Outline: Search with button
-
-    Given User is in search page
-    When User does a button search with term <term>
-    Then User is in correct search tab
-
-    Examples:
-      | term      |
-      | panda     |
-      | staircase |
-
-  Scenario Outline: Search with submit
+    #subdivide by step (one to GIVEN TERM and other do do the search
 
     Given User is in search page
-    When User does a submit search with term <term>
-    Then User is in correct search tab
-
+    When User does a <search> search with <term>
+    Then User is in correct search tab with term <term>
     Examples:
-      | term      |
-      | panda     |
-      | staircase |
-
-  Scenario Outline: Search with enter
-
-    Given User is in search page
-    When User does an enter search with term <term>
-    Then User is in correct search tab
-
-    Examples:
-      | term      |
-      | panda     |
-      | staircase |
+      | term      | search |
+      | panda     | button |
+      | staircase | enter  |
+      | panda     | submit |

@@ -70,10 +70,16 @@
             <artifactId>cucumber-testng</artifactId>
             <version>7.12.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>26.0.1</version>
+        </dependency>
         
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber2-jvm</artifactId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
             <version>2.21.0</version>
         </dependency>
     </dependencies>
@@ -82,23 +88,35 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.0.0-M7</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>config/${suiteXmlFile}.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.8.RC2/aspectjweaver-1.9.8.RC2.jar"
-                    </argLine>
+<!--                    <argLine>-->
+<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.8.RC2/aspectjweaver-1.9.8.RC2.jar"-->
+<!--                    </argLine>-->
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.8.RC2</version>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-testng</artifactId>
+                        <version>3.0.0-M7</version>
                     </dependency>
                 </dependencies>
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.aspectj</groupId>-->
+<!--                        <artifactId>aspectjweaver</artifactId>-->
+<!--                        <version>1.9.8.RC2</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
             </plugin>
         </plugins>
     </build>

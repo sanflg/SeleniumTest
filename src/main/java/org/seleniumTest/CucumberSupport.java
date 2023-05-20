@@ -1,19 +1,12 @@
-package org.seleniumTest.cucumber.runner;
+package org.seleniumTest;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
-import io.cucumber.testng.CucumberOptions;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-import org.seleniumTest.DriverManager;
-
-@CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"classpath:org.seleniumTest"}
-)
-public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
+public class CucumberSupport {
     @BeforeAll
+    //TODO 4 There is a way to get rid of this warning?
     public static void setupAll() {
         DriverManager.setupAll();
     }
@@ -23,6 +16,7 @@ public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
         DriverManager.getDriverManager().setup();
     }
 
+    //TODO 2 Add allure screenshot on failure with a generic implementation (also for testng execution)
     @After
     public void teardown() {
         DriverManager.getDriverManager().teardown();
