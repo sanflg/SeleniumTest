@@ -41,11 +41,11 @@ public class DriverManager {
         logger.info("Quited Chrome Driver");
     }
 
-    public static WebElement findWebElement(By by) {
+    public WebElement findWebElement(By by) {
         return getDriver().findElement(by);
     }
 
-    public static List<WebElement> findWebElements(By by) {
+    public List<WebElement> findWebElements(By by) {
         return getDriver().findElements(by);
     }
 
@@ -63,6 +63,4 @@ public class DriverManager {
     public static WebDriver getDriver() {
         return driverPool.get();
     }
-
-
 }

@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
 import org.seleniumTest.DriverManager;
 import org.testng.asserts.SoftAssert;
 
