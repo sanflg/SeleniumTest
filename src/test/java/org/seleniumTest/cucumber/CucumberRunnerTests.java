@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         glue = {"org.seleniumTest"},
-        plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+        plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         tags = "@Regression"
 )
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {

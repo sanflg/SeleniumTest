@@ -20,7 +20,7 @@ import org.seleniumTest.pageObjects.ResultPage;
 public class SearchTest extends BaseTest {
     public static final Logger logger = LogManager.getLogger(SearchTest.class);
 
-    @Test(dataProvider = "button",dataProviderClass=SearchDataProvider.class)
+    @Test(dataProvider = "button", dataProviderClass = SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
@@ -31,7 +31,7 @@ public class SearchTest extends BaseTest {
         logger.info("Search with button worked correctly.");
     }
 
-    @Test(dataProvider = "submit",dataProviderClass=SearchDataProvider.class)
+    @Test(dataProvider = "submit", dataProviderClass = SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
@@ -42,7 +42,7 @@ public class SearchTest extends BaseTest {
         logger.info("Search with submit worked correctly.");
     }
 
-    @Test(dataProvider = "enter",dataProviderClass=SearchDataProvider.class)
+    @Test(dataProvider = "enter", dataProviderClass = SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")

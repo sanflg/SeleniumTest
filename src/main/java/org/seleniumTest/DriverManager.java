@@ -1,12 +1,7 @@
 package org.seleniumTest;
 
-import java.util.List;
 import java.util.Objects;
 
-import com.beust.jcommander.Parameter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Reporter;
 import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -15,9 +10,8 @@ import org.testng.annotations.Parameters;
 
 public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
-    private static final  ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
     private static final DriverManager driverManager = new DriverManager();
-    private static final String maximize = "no";
 
     private DriverManager() {
     }

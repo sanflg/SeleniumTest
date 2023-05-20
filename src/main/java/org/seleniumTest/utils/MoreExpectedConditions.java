@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class MoreExpectedConditions {
     /**
-     * @see #anyElementToBeClickable(List)
      * @param elements Web elements to check.
      * @return The first web element found to be clickable.
+     * @see #anyElementToBeClickable(List)
      */
     public static ExpectedCondition<WebElement> anyElementToBeClickable(final WebElement... elements) {
         return MoreExpectedConditions.anyElementToBeClickable(Arrays.asList(elements));
