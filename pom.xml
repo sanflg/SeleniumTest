@@ -200,6 +200,9 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven-version}</version>
+                <configuration>
+                    <propertiesFilePath>test/resources/allure.properties</propertiesFilePath>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
