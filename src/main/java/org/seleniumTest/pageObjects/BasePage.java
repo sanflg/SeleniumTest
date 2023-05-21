@@ -21,7 +21,6 @@ public abstract class BasePage<T extends BasePage<T>> {
     protected final URL url;
 
     //TODO 4 There is a way to generify parameters declarations in testng.xml files?
-    //TODO 4 generify profiles declaration in pom
     //TODO 3 Fix pom failing to resolve dependencies
     public BasePage(String url) {
         try {

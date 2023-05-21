@@ -177,12 +177,6 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven-surefire-plugin-version}</version>
                         <configuration>
-                            <properties>
-                                <property>
-                                    <name>dataproviderthreadcount</name>
-                                    <value>${threadCount}</value>
-                                </property>
-                            </properties>
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
                                 <suiteXmlFile>config/testng.xml</suiteXmlFile>
