@@ -4,7 +4,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import org.seleniumTest.DriverManager;
-import org.testng.Reporter;
 
 public class CucumberSupport {
     @BeforeAll
@@ -24,9 +23,6 @@ public class CucumberSupport {
     }
 
     private static String xmlValue(String key) {
-        return Reporter.getCurrentTestResult()
-                .getTestContext()
-                .getCurrentXmlTest()
-                .getParameter(key);
+        return System.getProperty(key);
     }
 }

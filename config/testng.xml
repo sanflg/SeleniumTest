@@ -3,7 +3,7 @@
 <suite name="TestNG" parallel="methods">
     <test name="Search">
         <classes>
-            <class name="org.seleniumTest.testng.google.search.SearchTest"/>
+            <class name="org.seleniumTest.testng.test.search.SearchTest"/>
         </classes>
     </test>
 

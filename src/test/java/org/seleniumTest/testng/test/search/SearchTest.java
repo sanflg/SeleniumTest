@@ -1,4 +1,4 @@
-package org.seleniumTest.testng.google.search;
+package org.seleniumTest.testng.test.search;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
@@ -9,7 +9,7 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.seleniumTest.testng.dataProviders.SearchDataProvider;
+import org.seleniumTest.testng.dataProviders.search.SearchDataProvider;
 
 import org.seleniumTest.testng.BaseTest;
 import org.seleniumTest.pageObjects.SearchPage;
