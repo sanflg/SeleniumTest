@@ -16,6 +16,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <suiteXmlFile>testng</suiteXmlFile>
         <threadCount>3</threadCount>
+
+        <webdrivermanager-version>5.3.3</webdrivermanager-version>
+        <testng-version>7.7.1</testng-version>
+        <log4j-core-version>2.20.0</log4j-core-version>
+        <selenium-java-version>4.9.1</selenium-java-version>
+        <allure-testng-version>2.22.0</allure-testng-version>
+        <jul-to-slf4j-version>2.0.7</jul-to-slf4j-version>
+        <cucumber-version>7.12.0</cucumber-version>
+        <gherkin-version>26.0.1</gherkin-version>
+        <allure-cucumber7-jvm-version>2.21.0</allure-cucumber7-jvm-version>
+        <maven-compiler-plugin-version>3.11.0</maven-compiler-plugin-version>
+        <maven-surefire-plugin-version>3.0.0-M7</maven-surefire-plugin-version>
+        <aspectjweaver-version>1.9.8.RC2</aspectjweaver-version>
+        <allure-maven-version>2.22.0</allure-maven-version>
+
+
     </properties>
 
     <dependencies>
@@ -23,68 +39,68 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.3.3</version>
+            <version>${webdrivermanager-version}</version>
         </dependency>
 
         <!-- Testing framework -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.7.1</version>
+            <version>${testng-version}</version>
         </dependency>
 
         <!-- Logger dependency -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.20.0</version>
+            <version>${log4j-core-version}</version>
         </dependency>
 
         <!-- Selenium framework for web testing -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.9.1</version>
+            <version>${selenium-java-version}</version>
         </dependency>
 
         <!-- Reporting framework -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.22.0</version>
+            <version>${allure-testng-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
-            <version>2.0.7</version>
+            <version>${jul-to-slf4j-version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.12.0</version>
+            <version>${cucumber-version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.12.0</version>
+            <version>${cucumber-version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>gherkin</artifactId>
-            <version>26.0.1</version>
+            <version>${gherkin-version}</version>
             <scope>test</scope>
         </dependency>
         
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>2.21.0</version>
+            <version>${allure-cucumber7-jvm-version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -97,12 +113,12 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.11.0</version>
+                        <version>${maven-compiler-plugin-version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M7</version>
+                        <version>${maven-surefire-plugin-version}</version>
                         <configuration>
                             <properties>
                                 <property>
@@ -113,7 +129,17 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
+                            </argLine>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectjweaver-version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -125,12 +151,12 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.11.0</version>
+                        <version>${maven-compiler-plugin-version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M7</version>
+                        <version>${maven-surefire-plugin-version}</version>
                         <configuration>
                             <properties>
                                 <property>
@@ -141,7 +167,17 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
                             </suiteXmlFiles>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
+                            </argLine>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectjweaver-version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -153,12 +189,12 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.11.0</version>
+                        <version>${maven-compiler-plugin-version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M7</version>
+                        <version>${maven-surefire-plugin-version}</version>
                         <configuration>
                             <properties>
                                 <property>
@@ -170,7 +206,17 @@
                                 <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
                                 <suiteXmlFile>config/testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
+                            </argLine>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectjweaver-version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -178,16 +224,11 @@
     </profiles>
 
     <reporting>
-        <excludeDefaults>true</excludeDefaults>
         <plugins>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-                    <reportingOutputDirectory>target.allure-result</reportingOutputDirectory>
-                    <reportVersion>2.22.0</reportVersion>
-                </configuration>
+                <version>${allure-maven-version}</version>
             </plugin>
         </plugins>
     </reporting>

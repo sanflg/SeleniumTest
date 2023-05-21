@@ -27,7 +27,7 @@ public class SearchDataProvider {
         };
     }
 
-    //TODO 4 there is a less ugly way to do a product of 1D matrices wih daaProviders?
+    // TODO 4 there is a less ugly way to do a product of 1D matrices wih daaProviders?
 //    Object[][] matrix = new Object[searches.length + terms.length + 1][2];
 //        for (int i = 0; i < matrix.length;) {
 //        for (int j = 0; j < 2; j++) {

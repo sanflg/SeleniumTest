@@ -99,8 +99,15 @@ On Allure
 ***************************************************
 
 1- In order to allure to avoid consuming each cucumber example as retries, we need to parametrize the step name using
-notation like "Scenario name <variable>" and will generate a new execution for each in the report, however, this will
-take each example as a new test, to have a correct representation of test, we may need to implement Categories
+    notation like "Scenario name <variable>" and will generate a new execution for each in the report, however, this will
+    take each example as a new test, to have a correct representation of test, we may need to implement Categories
+
+2- On nested calls of @Step notation, allure generates a hierarchy of calls in the test report such as:
+    > Search by enter with 'staircase' term
+        * Get Driver
+        * Driver.get() url
+
+3- aspectjweaver is necessary as part of an AOP solution for notation injection on report.
 
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.

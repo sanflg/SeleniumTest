@@ -8,7 +8,6 @@ import org.testng.Reporter;
 
 public class CucumberSupport {
     @BeforeAll
-    //TODO 4 There is a way to get rid of this warning?
     public static void setupAll() {
         DriverManager.setupAll(xmlValue("driver"));
     }
@@ -18,7 +17,7 @@ public class CucumberSupport {
         DriverManager.getDriverManager().setup(xmlValue("driver"), xmlValue("maximize"));
     }
 
-    //TODO 2 Add allure screenshot on failure with a generic implementation (also for testng execution)
+    // TODO 2 Add allure screenshot on failure with a generic implementation (also for testng execution)
     @After
     public void teardown() {
         DriverManager.getDriverManager().teardown();
