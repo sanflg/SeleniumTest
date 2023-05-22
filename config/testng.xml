@@ -14,5 +14,5 @@
     <!-- Supported drivers: {CHROME,FIREFOX,OPERA,EDGE,IEXPLORER,CHROMIUM,SAFARI} (required installation/binary)-->
     <parameter name="driver" value="chrome"/>
     <!-- Anything except "yes" literal string will not maximise -->
-    <parameter name="maximize" value="true"/>
+    <parameter name="maximize" value="false"/>
 </suite>
