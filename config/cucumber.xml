@@ -11,6 +11,7 @@
         </classes>
     </test>
 
+    <parameter name="timeout" value="10"/>
     <parameter name="executor" value="jenkins"/>
     <!-- Supported drivers: {CHROME,FIREFOX,OPERA,EDGE,IEXPLORER,CHROMIUM,SAFARI} (required installation/binary)-->
     <parameter name="driver" value="chrome"/>

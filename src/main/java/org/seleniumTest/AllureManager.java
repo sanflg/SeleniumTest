@@ -1,7 +1,6 @@
 package org.seleniumTest;
 
 import io.qameta.allure.Allure;
-import io.qameta.allure.model.Attachment;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -59,7 +58,6 @@ public class AllureManager {
     }
 
     private static void addExecutorInfo(String executorFileName) {
-        //TODO check how to consume jenkins vars and use jackson for json formatting.
         File executorFile = new File(projectDir +  executorDir + executorFileName + ".json");
         File file = new File(projectDir + outputDir + "executor.json");
 
@@ -78,13 +76,14 @@ public class AllureManager {
 
     private static void addCategoriesInfo() {
         //TODO check how to consume jenkins vars and use jackson for json formatting.
-        String info = "[ { \"name\": \"Ignored tests\", \"matchedStatuses\": [\"skipped\"] }, { \"name\": \"Infrastructure problems\", \"matchedStatuses\": [\"broken\", \"failed\"], \"messageRegex\": \".*bye-bye.*\" }, { \"name\": \"Outdated tests\", \"matchedStatuses\": [\"broken\"], \"traceRegex\": \".*FileNotFoundException.*\" }, { \"name\": \"Defects\", \"matchedStatuses\": [\"failed\"] }, { \"name\": \"Test defects\", \"matchedStatuses\": [\"broken\"] } ]";
-
         File file = new File(projectDir + outputDir + "categories.json");
         try {
             if (!file.exists()) {
+                File info = new File(projectDir +
+                        "#src#main#resources#allureCategories.txt".replace("#", separator));
+
                 FileUtils.writeStringToFile(file,
-                        info,
+                        FileUtils.readFileToString(info,StandardCharsets.UTF_8),
                         StandardCharsets.UTF_8,
                         true);
             }

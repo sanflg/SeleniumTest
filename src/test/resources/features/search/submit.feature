@@ -12,5 +12,5 @@ Feature: Search
     Then User is in correct search tab with term <term>
     Examples:
       | search | term     |
-      | submit | panda    |
+      | submit | panda 1  |
       | submit | cucumber |

@@ -1,5 +1,6 @@
 package org.seleniumTest;
 
+import java.time.Duration;
 import java.util.Objects;
 
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,13 @@ public class DriverManager {
 
     public void setup(String driver, String maximize) {
         WebDriver driverInstance = WebDriverManager.getInstance(driver).create();
+        //Set timeout time for test cases
+        driverInstance.manage().timeouts()
+                .scriptTimeout(Duration.ofSeconds(Long.parseLong(System.getProperty("timeout"))));
+
+        //Check for driver to maximize
         if (Objects.equals(maximize, "yes")) driverInstance.manage().window().maximize();
+
         driverPool.set(driverInstance);
         logger.info("Started new Chrome Driver");
     }

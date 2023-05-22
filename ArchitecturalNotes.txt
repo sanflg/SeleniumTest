@@ -111,6 +111,8 @@ On Allure
 
 4- For new execution ways (jenkins, local or any implemented CI/CD system, add an executor file data in resources)
 
+5- On new projects check the categories you want to implement.
+
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.
 ***************************************************

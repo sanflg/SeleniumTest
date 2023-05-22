@@ -1,11 +1,6 @@
 package org.seleniumTest.testng;
 
-import io.cucumber.java.Scenario;
-import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.seleniumTest.AllureManager;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeMethod;

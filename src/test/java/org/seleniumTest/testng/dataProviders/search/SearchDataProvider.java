@@ -7,7 +7,7 @@ public class SearchDataProvider {
     public static Object[][] button() {
         return new Object[][]{
                 {"button", "testng"},
-                {"button", "staircase 1"}
+                {"button", "staircase"}
         };
     }
 
@@ -15,7 +15,7 @@ public class SearchDataProvider {
     public static Object[][] submit() {
         return new Object[][]{
                 {"submit", "testng"},
-                {"submit", "staircase"}
+                {"submit", "staircase 1"}
         };
     }
 

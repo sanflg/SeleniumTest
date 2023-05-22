@@ -17,6 +17,7 @@
         <driver>chrome</driver>
         <maximize>false</maximize>
         <executor>jenkins</executor>
+        <timeout>10</timeout>
         <threadCount>3</threadCount>
 
         <webdrivermanager-version>5.3.3</webdrivermanager-version>
