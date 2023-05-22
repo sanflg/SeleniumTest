@@ -14,7 +14,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <suiteXmlFile>testng</suiteXmlFile>
+        <driver>chrome</driver>
+        <maximize>false</maximize>
+        <executor>jenkins</executor>
         <threadCount>3</threadCount>
 
         <webdrivermanager-version>5.3.3</webdrivermanager-version>

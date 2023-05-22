@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.seleniumTest.utils.AllureManager;
-import org.testng.annotations.Parameters;
 
 public class DriverManager {
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
@@ -17,14 +15,12 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    @Parameters({"driver"})
     public static void setupAll(String driver) {
         WebDriverManager.getInstance(driver.toUpperCase()).setup();
-        AllureManager.addEnvironment();
+        AllureManager.setAllureInfo(System.getProperty("executor"));
         logger.info("Started WebDriverManager");
     }
 
-    @Parameters({"driver", "maximize"})
     public void setup(String driver, String maximize) {
         WebDriver driverInstance = WebDriverManager.getInstance(driver).create();
         if (Objects.equals(maximize, "yes")) driverInstance.manage().window().maximize();

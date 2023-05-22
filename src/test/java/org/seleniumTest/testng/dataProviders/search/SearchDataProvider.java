@@ -7,7 +7,7 @@ public class SearchDataProvider {
     public static Object[][] button() {
         return new Object[][]{
                 {"button", "testng"},
-                {"button", "staircase"}
+                {"button", "staircase 1"}
         };
     }
 

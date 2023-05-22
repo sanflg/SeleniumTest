@@ -13,6 +13,7 @@ import org.seleniumTest.pageObjects.ResultPage;
 @Epic("SearchEpic")
 @Feature("Search")
 @Link("https://www.google.com.ar/")
+@Owner("Santiago Lataza")
 public class SearchTest extends BaseTest {
     public static final Logger logger = LogManager.getLogger(SearchTest.class);
 

@@ -4,6 +4,7 @@ Feature: Search
   @Regression
   @severity=critical
   @issue=<TT-1>
+  @Owner-Santiago_Lataza
   Scenario Outline: Search "<term>" by <search>
 
     #subdivide by step (one to GIVEN TERM and other do do the search
@@ -13,5 +14,5 @@ Feature: Search
     Then User is in correct search tab with term <term>
     Examples:
       | search | term     |
-      | button | panda    |
+      | button | panda 1  |
       | button | cucumber |

@@ -4,6 +4,7 @@ Feature: Search
   @Regression
   @severity=critical
   @issue=<TT-1>
+  @Owner-Santiago_Lataza
   Scenario Outline: Search "<term>" by <search>
 
     Given User is in search page

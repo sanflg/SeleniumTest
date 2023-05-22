@@ -109,6 +109,8 @@ On Allure
 
 3- aspectjweaver is necessary as part of an AOP solution for notation injection on report.
 
+4- For new execution ways (jenkins, local or any implemented CI/CD system, add an executor file data in resources)
+
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.
 ***************************************************
