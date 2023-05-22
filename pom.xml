@@ -14,7 +14,10 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <suiteXmlFile>testng</suiteXmlFile>
+        <driver>chrome</driver>
+        <maximize>false</maximize>
+        <executor>jenkins</executor>
+        <timeout>10</timeout>
         <threadCount>3</threadCount>
 
         <webdrivermanager-version>5.3.3</webdrivermanager-version>
@@ -105,6 +108,34 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin-version}</version>
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>${threadCount}</value>
+                        </property>
+                    </properties>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectjweaver-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
     <profiles>
         <profile>
             <id>TestNG</id>
@@ -112,34 +143,13 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler-plugin-version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven-surefire-plugin-version}</version>
                         <configuration>
-                            <properties>
-                                <property>
-                                    <name>dataproviderthreadcount</name>
-                                    <value>${threadCount}</value>
-                                </property>
-                            </properties>
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <argLine>
-                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
-                            </argLine>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjweaver</artifactId>
-                                <version>${aspectjweaver-version}</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -150,34 +160,13 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler-plugin-version}</version>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven-surefire-plugin-version}</version>
                         <configuration>
-                            <properties>
-                                <property>
-                                    <name>dataproviderthreadcount</name>
-                                    <value>${threadCount}</value>
-                                </property>
-                            </properties>
                             <suiteXmlFiles>
                                 <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <argLine>
-                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
-                            </argLine>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjweaver</artifactId>
-                                <version>${aspectjweaver-version}</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -186,11 +175,6 @@
             <id>TestNG+Cucumber</id>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler-plugin-version}</version>
-                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
@@ -206,17 +190,7 @@
                                 <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
                                 <suiteXmlFile>config/testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <argLine>
-                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
-                            </argLine>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjweaver</artifactId>
-                                <version>${aspectjweaver-version}</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -229,6 +203,9 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven-version}</version>
+                <configuration>
+                    <propertiesFilePath>test/resources/allure.properties</propertiesFilePath>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>

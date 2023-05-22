@@ -4,6 +4,7 @@ Feature: Search
   @Regression
   @severity=critical
   @issue=<TT-1>
+  @Owner-Santiago_Lataza
   Scenario Outline: Search "<term>" by <search>
 
     #subdivide by step (one to GIVEN TERM and other do do the search

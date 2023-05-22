@@ -3,8 +3,9 @@ package org.seleniumTest.cucumber;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
+import org.seleniumTest.AllureManager;
 import org.seleniumTest.DriverManager;
-import org.testng.Reporter;
 
 public class CucumberSupport {
     @BeforeAll
@@ -17,16 +18,13 @@ public class CucumberSupport {
         DriverManager.getDriverManager().setup(xmlValue("driver"), xmlValue("maximize"));
     }
 
-    // TODO 2 Add allure screenshot on failure with a generic implementation (also for testng execution)
     @After
-    public void teardown() {
+    public void afterMethod(Scenario scenario) {
+        AllureManager.attachScreenshotOnFailure(scenario.isFailed());
         DriverManager.getDriverManager().teardown();
     }
 
     private static String xmlValue(String key) {
-        return Reporter.getCurrentTestResult()
-                .getTestContext()
-                .getCurrentXmlTest()
-                .getParameter(key);
+        return System.getProperty(key);
     }
 }

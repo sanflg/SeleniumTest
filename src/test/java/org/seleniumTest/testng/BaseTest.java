@@ -1,5 +1,7 @@
 package org.seleniumTest.testng;
 
+import org.seleniumTest.AllureManager;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -22,7 +24,8 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void teardown() {
+    public void afterMethod(ITestResult result) {
+        AllureManager.attachScreenshotOnFailure(result.getStatus()!=1);
         DriverManager.getDriverManager().teardown();
     }
 }

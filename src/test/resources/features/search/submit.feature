@@ -4,6 +4,7 @@ Feature: Search
   @Regression
   @severity=critical
   @issue=<TT-1>
+  @Owner-Santiago_Lataza
   Scenario Outline: Search "<term>" by <search>
 
     Given User is in search page
@@ -11,5 +12,5 @@ Feature: Search
     Then User is in correct search tab with term <term>
     Examples:
       | search | term     |
-      | submit | panda    |
+      | submit | panda 1  |
       | submit | cucumber |
