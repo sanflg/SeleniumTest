@@ -3,7 +3,11 @@
 <suite name="Cucumber">
     <test name="Search" parallel="methods">
         <classes>
-            <class name="org.seleniumTest.cucumber.CucumberRunnerTests"/>
+            <class name="org.seleniumTest.cucumber.CucumberRunnerTests">
+<!--                <methods>-->
+<!--                    <include name="googleHomePage_searchByButton"/>-->
+<!--                </methods>-->
+            </class>
         </classes>
     </test>
 

@@ -1,11 +1,6 @@
 package org.seleniumTest.testng.test.search;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Story;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.Description;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +12,7 @@ import org.seleniumTest.pageObjects.ResultPage;
 
 @Epic("SearchEpic")
 @Feature("Search")
+@Link("https://www.google.com.ar/")
 public class SearchTest extends BaseTest {
     public static final Logger logger = LogManager.getLogger(SearchTest.class);
 

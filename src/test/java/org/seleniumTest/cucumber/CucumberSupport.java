@@ -4,6 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import org.seleniumTest.DriverManager;
+import org.seleniumTest.utils.AllureManager;
 
 public class CucumberSupport {
     @BeforeAll

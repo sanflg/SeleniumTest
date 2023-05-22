@@ -3,7 +3,11 @@
 <suite name="TestNG" parallel="methods">
     <test name="Search">
         <classes>
-            <class name="org.seleniumTest.testng.test.search.SearchTest"/>
+            <class name="org.seleniumTest.testng.test.search.SearchTest">
+<!--                <methods>-->
+<!--                    <include name="googleHomePage_searchByButton"/>-->
+<!--                </methods>-->
+            </class>
         </classes>
     </test>
 

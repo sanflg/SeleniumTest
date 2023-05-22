@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.seleniumTest.utils.AllureManager;
 import org.testng.annotations.Parameters;
 
 public class DriverManager {
@@ -19,6 +20,7 @@ public class DriverManager {
     @Parameters({"driver"})
     public static void setupAll(String driver) {
         WebDriverManager.getInstance(driver.toUpperCase()).setup();
+        AllureManager.addEnvironment();
         logger.info("Started WebDriverManager");
     }
 
