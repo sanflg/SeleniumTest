@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager {
+    //TODO 	- Try Jenkins with allure plugins
+    //TODO	- Implement issue administrator system
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
     private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
     private static final DriverManager driverManager = new DriverManager();
