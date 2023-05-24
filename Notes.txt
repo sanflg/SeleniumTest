@@ -113,6 +113,9 @@ On Allure
 
 5- On new projects check the categories you want to implement.
 
+6- In order to check for more documentation for allure report integration with cucumber feature files, check
+    test/resources/features/search/button.feature file with detailed info on each field
+
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.
 ***************************************************

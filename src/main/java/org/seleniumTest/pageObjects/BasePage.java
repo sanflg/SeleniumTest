@@ -22,6 +22,7 @@ public abstract class BasePage<T extends BasePage<T>> {
 
     //TODO 4 There is a way to generify parameters declarations in testng.xml files?
     //TODO 3 Fix pom failing to resolve dependencies
+    //TODO Add driver on constructor
     public BasePage(String url) {
         try {
             this.driver = DriverManager.getDriver();
@@ -41,7 +42,7 @@ public abstract class BasePage<T extends BasePage<T>> {
     @Step("Go to the desired url by page.")
     @SuppressWarnings({"unchecked"})
     public T goTo() {
-        DriverManager.getDriver().get(domain);
+        DriverManager.getDriver().get(url.toString());
         return (T) this;
     }
 }
