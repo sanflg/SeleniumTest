@@ -1,0 +1,42 @@
+DONE D1:
+	Implemented testNg.xml	Parametrized driverManager -> Base test and testing.xml
+	Added maximize -> Optional
+	Allure implemented
+		allure-results in target directory so it is erased after each run
+	Moved Log.log result to target for same above
+	SoftAssert for isCurrentPage();
+	Added config directory
+	Added pom.xml parameter for testng.xml runner change on pom instead of new profiles
+	New maven build descriptions
+	CUCUMBER
+	Allure + cucumber (half done)
+
+DONE D2:
+	Extent reporting option discarded (Allure tiene integracion con jira y extent no, tiene el report mas descriptivo, es mas usado y con mas docu
+	DriverManager singleton with threadLocal with background annotation for beforeAll and Before for driver get.
+	NOT SO HORRIBLE IMPLEMENTATION FOR DRIVERS FOR CUCUMBER
+	Solve double driver instantiation on start
+	Conjugate pageObjects and glue
+	Architectural notes on “GlueObjects”
+	Resolve multiple examples as retries in allure + cucumber
+	DataProvider testng
+
+Done D3:
+	Decided to use instances in Step definition classes
+	Moved StepDefinitions to test directory and added <scope>test</scope> to cucumber libraries to enforce correct directory usage
+	MultiThreading
+	Different profiles
+	Getting values from xml such as driver and maximize
+	Code Formatting
+	Added pom properties
+	On nested calls @Step notation, allure generates a hierarchy test report
+	Generification of profiles in pom
+	Simplified xmlValue in CucumberSupport by using System.getProperty()
+	Added allure screenshot on failure, categories, executor and environment
+	Added general script timeout set by parameter on run
+
+Done D4:
+    Better implementation for allure features in cucumber features files.
+    Added documentation on features files + allure integration (check button.feature file)
+
+

@@ -15,9 +15,15 @@ import java.util.Properties;
 public class AllureManager {
     private static final Properties properties = System.getProperties();
     private static final String separator = FileSystems.getDefault().getSeparator();
+    //TODO check if there is a way to set allure owner annotation in features files to be a link using allure.properties
+    // like links
+
+    //TODO use Paths
     private static final String outputDir = "#target#allure-results#".replace("#", separator);
+    //TODO add classloader reference for resources
     private static final String executorDir = "#src#main#resources#executors#".replace("#", separator);
     private static final String projectDir = System.getProperty("user.dir");
+    //TODO Obtain maven parameters for dynamic construction and blur sensitive params
     private static final String[] PARAMS = new String[]{
             "java.vendor.version",
             "driver",

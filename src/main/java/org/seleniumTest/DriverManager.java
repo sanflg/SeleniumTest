@@ -24,7 +24,7 @@ public class DriverManager {
         logger.info("Started WebDriverManager");
     }
 
-    public synchronized void setup(String driver, String maximize) {
+    public void setup(String driver, String maximize) {
         WebDriver driverInstance = WebDriverManager.getInstance(driver).create();
         //Set timeout time for test cases
         driverInstance.manage().timeouts()

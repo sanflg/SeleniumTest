@@ -1,16 +1,18 @@
-Feature: Search
+Feature: Enter Search
 
-#  https://docs.qameta.io/allure/#_cucumber_jvm
+  Rule: Enter scenarios.
+  - Enter is used to submit search
+
   @Regression
   @severity=critical
   @issue=<TT-1>
   @Owner-Santiago_Lataza
-  Scenario Outline: Search "<term>" by <search>
+  Scenario Outline: Search "<search_term>" by <search_method>
 
     Given User is in search page
-    When User does a <search> search with <term>
-    Then User is in correct search tab with term <term>
+    When User does a <search_method> search with <search_term>
+    Then User is in correct search tab with term <search_term>
     Examples:
-      | search | term     |
-      | enter  | panda    |
-      | enter  | cucumber |
+      | search_method | search_term |
+      | enter         | panda       |
+      | enter         | cucumber    |
