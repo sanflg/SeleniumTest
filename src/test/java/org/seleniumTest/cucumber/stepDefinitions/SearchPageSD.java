@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.seleniumTest.pageObjects.SearchPage;
 
-// TODO 1 Learn Gherkin
 public final class SearchPageSD{
     private final SearchPage searchPage;
     private final ScenarioContext scenarioContext;

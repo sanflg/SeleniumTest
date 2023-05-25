@@ -15,7 +15,6 @@ import org.testng.annotations.Test;
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
     // TODO Avoid repetition of cucumber scenarios in allure report
     // TODO More test cases for other suite
-    // TODO Check link patters
 
     @Override
     @DataProvider(parallel = true)

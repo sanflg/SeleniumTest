@@ -15,8 +15,6 @@ import java.util.Properties;
 public class AllureManager {
     private static final Properties properties = System.getProperties();
     private static final String separator = FileSystems.getDefault().getSeparator();
-    //TODO check if there is a way to set allure owner annotation in features files to be a link using allure.properties
-    // like links
 
     //TODO use Paths and less ugly implementation
     private static final String outputDir = "#target#allure-results#".replace("#", separator);
@@ -51,7 +49,7 @@ public class AllureManager {
             if (!file.exists()) {
                 for (String param : PARAMS) {
                     FileUtils.writeStringToFile(file,
-                            String.format("%s=%s\n",
+                            String.format("<%s>=<%s>\n",
                                     param,
                                     properties.get(param)),
                             StandardCharsets.UTF_8,
@@ -81,7 +79,6 @@ public class AllureManager {
     }
 
     private static void addCategoriesInfo() {
-        //TODO check how to consume jenkins vars and use jackson for json formatting.
         File file = new File(projectDir + outputDir + "categories.json");
         try {
             if (!file.exists()) {
