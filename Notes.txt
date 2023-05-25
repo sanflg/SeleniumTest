@@ -50,6 +50,10 @@ On Cucumber
 
 5- Set cucumber dependency scope to test to limit where we can create cucumber classes.
 
+6- Take in consideration, once abstraction is allowed on cucumber step definitions, that we could implement DDD approach
+    kind of solution with package administration like in the following link:
+    http://confessionsofanagilecoach.blogspot.com/2017/05/teaching-cucumbers-about-boundaries.html
+
 Resume of action points on cucumber:
     * Make all Step Definition classes FINAL.
     * Check issue https://github.com/cucumber/cucumber-jvm/issues/2757 if we can rule behavior by interfaces and
@@ -89,6 +93,9 @@ On PicoContainer
                     searchPage.searchBy(search, term);
                 }
             }
+
+    Implemented picoContainers with ScenarioContext class. there we can define the format of the data to be stored in
+    a pico container and also we need to add the ScenarioContext class to the stepDefinition classes.
 
         But since PicoContainer cannot build the parameters for constructors with dependency injection, this is not
         available for classes with default constructors with args. See more in:

@@ -33,6 +33,7 @@
         <maven-surefire-plugin-version>3.0.0-M7</maven-surefire-plugin-version>
         <aspectjweaver-version>1.9.8.RC2</aspectjweaver-version>
         <allure-maven-version>2.22.0</allure-maven-version>
+        <cucumber-picocontainer-version>7.11.1</cucumber-picocontainer-version>
     </properties>
 
     <dependencies>
@@ -103,6 +104,12 @@
             <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${allure-cucumber7-jvm-version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber-picocontainer-version}</version>
         </dependency>
     </dependencies>
 

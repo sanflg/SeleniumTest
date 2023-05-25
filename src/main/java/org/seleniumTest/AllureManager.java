@@ -18,7 +18,7 @@ public class AllureManager {
     //TODO check if there is a way to set allure owner annotation in features files to be a link using allure.properties
     // like links
 
-    //TODO use Paths
+    //TODO use Paths and less ugly implementation
     private static final String outputDir = "#target#allure-results#".replace("#", separator);
     //TODO add classloader reference for resources
     private static final String executorDir = "#src#main#resources#executors#".replace("#", separator);
