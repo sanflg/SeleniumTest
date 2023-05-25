@@ -3,16 +3,15 @@ package org.seleniumTest;
 import java.time.Duration;
 import java.util.Objects;
 
+import org.apache.logging.log4j.Level;
 import org.openqa.selenium.WebDriver;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.seleniumTest.pageObjects.BasePage;
+import org.seleniumTest.utils.AllureLogger;
 
 public class DriverManager {
-    //TODO 	- Try Jenkins with allure plugins
-    //TODO	- Implement issue administrator system
     //TODO  - Add screenshot by step with var
-    private static final Logger logger = LogManager.getLogger(DriverManager.class);
+    private static final AllureLogger LOGGER = new AllureLogger(BasePage.class);
     private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
     private static final DriverManager driverManager = new DriverManager();
 
@@ -22,7 +21,7 @@ public class DriverManager {
     public static void setupAll(String driver) {
         WebDriverManager.getInstance(driver.toUpperCase()).setup();
         AllureManager.setAllureInfo(System.getProperty("executor"));
-        logger.info("Started WebDriverManager");
+        LOGGER.log(Level.INFO, "Started WebDriverManager");
     }
 
     public void setup(String driver, String maximize) {
@@ -35,13 +34,13 @@ public class DriverManager {
         if (Objects.equals(maximize, "yes")) driverInstance.manage().window().maximize();
 
         driverPool.set(driverInstance);
-        logger.info("Started new Chrome Driver");
+        LOGGER.log(Level.INFO,"Started new Chrome Driver");
     }
 
     public void teardown() {
         driverPool.get().quit();
         driverPool.remove();
-        logger.info("Quited Chrome Driver");
+        LOGGER.log(Level.INFO,"Quited Chrome Driver");
     }
 
     public static DriverManager getDriverManager() {

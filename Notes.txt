@@ -95,7 +95,7 @@ On PicoContainer
             }
 
     Implemented picoContainers with ScenarioContext class. there we can define the format of the data to be stored in
-    a pico container and also we need to add the ScenarioContext class to the stepDefinition classes.
+    a pico container, and also we need to add the ScenarioContext class to the stepDefinition classes.
 
         But since PicoContainer cannot build the parameters for constructors with dependency injection, this is not
         available for classes with default constructors with args. See more in:
@@ -122,6 +122,8 @@ On Allure
 
 6- In order to check for more documentation for allure report integration with cucumber feature files, check
     test/resources/features/search/button.feature file with detailed info on each field
+
+7- Added allure logging with steps + log4j file output (check AllureLogger class for more info)
 
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.

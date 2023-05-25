@@ -1,9 +1,9 @@
 package org.seleniumTest.testng.test.search;
 
 import io.qameta.allure.*;
+import org.apache.logging.log4j.Level;
+import org.seleniumTest.utils.AllureLogger;
 import org.testng.annotations.Test;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 import org.seleniumTest.testng.dataProviders.search.SearchDataProvider;
 
 import org.seleniumTest.testng.BaseTest;
@@ -15,7 +15,7 @@ import org.seleniumTest.pageObjects.ResultPage;
 @Link("https://www.google.com.ar/")
 @Owner("Santiago Lataza")
 public class SearchTest extends BaseTest {
-    public static final Logger logger = LogManager.getLogger(SearchTest.class);
+    protected static final AllureLogger LOGGER = new AllureLogger(SearchTest.class);
 
     @Test(dataProvider = "button", dataProviderClass = SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
@@ -25,7 +25,7 @@ public class SearchTest extends BaseTest {
         SearchPage searchPage = new SearchPage().goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        logger.info("Search with button worked correctly.");
+        LOGGER.log(Level.INFO, "Search with button worked correctly.");
     }
 
     @Test(dataProvider = "submit", dataProviderClass = SearchDataProvider.class)
@@ -36,7 +36,7 @@ public class SearchTest extends BaseTest {
         SearchPage searchPage = new SearchPage().goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        logger.info("Search with submit worked correctly.");
+        LOGGER.log(Level.INFO,"Search with submit worked correctly.");
     }
 
     @Test(dataProvider = "enter", dataProviderClass = SearchDataProvider.class)
@@ -47,6 +47,6 @@ public class SearchTest extends BaseTest {
         SearchPage searchPage = new SearchPage().goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        logger.info("Search with enter worked correctly.");
+        LOGGER.log(Level.INFO,"Search with enter worked correctly.");
     }
 }

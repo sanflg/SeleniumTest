@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.Level;
 import org.seleniumTest.DriverManager;
 import org.testng.asserts.SoftAssert;
 
@@ -32,7 +33,7 @@ public class ResultPage extends BasePage<ResultPage> {
             actualUrl = new URL(DriverManager.getDriver().getCurrentUrl());
             targetUrl = new URL(partialUrl + term);
         } catch (MalformedURLException e) {
-            logger.error("MalformedURLException building URL from driver.");
+            LOGGER.log(Level.ERROR, "MalformedURLException building URL from driver.");
             throw new RuntimeException(e);
         }
 

@@ -1,4 +1,4 @@
-DONE D1:
+Epic 1:
 	Implemented testNg.xml	Parametrized driverManager -> Base test and testing.xml
 	Added maximize -> Optional
 	Allure implemented
@@ -11,7 +11,7 @@ DONE D1:
 	CUCUMBER
 	Allure + cucumber (half done)
 
-DONE D2:
+Epic 2:
 	Extent reporting option discarded (Allure tiene integracion con jira y extent no, tiene el report mas descriptivo, es mas usado y con mas docu
 	DriverManager singleton with threadLocal with background annotation for beforeAll and Before for driver get.
 	NOT SO HORRIBLE IMPLEMENTATION FOR DRIVERS FOR CUCUMBER
@@ -21,7 +21,7 @@ DONE D2:
 	Resolve multiple examples as retries in allure + cucumber
 	DataProvider testng
 
-Done D3:
+Epic 3:
 	Decided to use instances in Step definition classes
 	Moved StepDefinitions to test directory and added <scope>test</scope> to cucumber libraries to enforce correct directory usage
 	MultiThreading
@@ -35,8 +35,10 @@ Done D3:
 	Added allure screenshot on failure, categories, executor and environment
 	Added general script timeout set by parameter on run
 
-Done D4:
+Epic 4:
     Better implementation for allure features in cucumber features files.
     Added documentation on features files + allure integration (check button.feature file)
+    Added picoContainers implementation for shared data between steps.
+    Added allure logging with steps + log4j file output (check AllureLogger class for more info)
 
 
