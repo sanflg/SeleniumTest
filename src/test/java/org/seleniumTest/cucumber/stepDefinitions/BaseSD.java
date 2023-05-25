@@ -5,6 +5,6 @@ package org.seleniumTest.cucumber.stepDefinitions;
  *
  * @author Santiago Lataza
  */
-public final class BaseSD {
+public class BaseSD{
 
 }

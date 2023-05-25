@@ -7,7 +7,8 @@ import io.cucumber.java.Scenario;
 import org.seleniumTest.AllureManager;
 import org.seleniumTest.DriverManager;
 
-public class CucumberSupport {
+public class CucumberHooks {
+
     @BeforeAll
     public static void setupAll() {
         DriverManager.setupAll(xmlValue("driver"));
