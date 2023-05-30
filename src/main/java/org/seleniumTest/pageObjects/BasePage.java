@@ -5,19 +5,16 @@ import static org.testng.Assert.assertEquals;
 import java.net.URL;
 import java.net.MalformedURLException;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import org.seleniumTest.DriverManager;
-import org.seleniumTest.allure.AllureLogger;
-
 public abstract class BasePage<T extends BasePage<T>> {
     //TODO 3 Check if there is allure logger to avoid duplicate login calls (log4j and allure)
-//    protected static final AllureLogger LOGGER = new AllureLogger(BasePage.class);
     protected final static String domain = "https://www.google.com.ar/";
+    protected static final Logger logger = LogManager.getLogger(BasePage.class);
     protected final WebDriver driver;
     protected final URL url;
 
@@ -29,7 +26,7 @@ public abstract class BasePage<T extends BasePage<T>> {
             this.driver = driver;
             this.url = new URL(url);
         } catch (MalformedURLException e) {
-//            LOGGER.log(Level.ERROR, String.format("MalformedURLException URL generation for <%s>", url));
+            logger.error(String.format("MalformedURLException URL generation for <%s>", url));
             throw new RuntimeException(e);
         }
         PageFactory.initElements(driver, this);

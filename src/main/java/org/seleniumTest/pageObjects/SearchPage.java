@@ -28,6 +28,8 @@ public class SearchPage extends BasePage<SearchPage> {
         searchBox.sendKeys(term);
         searchBox.sendKeys(Keys.ESCAPE);
 
+        logger.info("Starting search process by '{}', with '{}' as term", search, term);
+
         WebElement button = new WebDriverWait(driver, Duration.ofSeconds(2)).until(
                 MoreExpectedConditions.anyElementToBeClickable(searchButton));
 

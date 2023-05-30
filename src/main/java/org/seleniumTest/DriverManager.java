@@ -3,11 +3,15 @@ package org.seleniumTest;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.seleniumTest.allure.AllureManager;
+import org.seleniumTest.utils.PageUtils;
 
 public class DriverManager {
+    private static final Logger logger = LogManager.getLogger(PageUtils.class);
     protected static final String DEFAULT_DRIVER_NAME = "DEFAULT";
     private static final DriverManager instance = new DriverManager();
     private final ThreadLocal<Map<String,WebDriver>> webDrivers = ThreadLocal.withInitial(HashMap::new);
@@ -21,7 +25,7 @@ public class DriverManager {
         webDriverManager = WebDriverManager.getInstance(driverType.toUpperCase());
         webDriverManager.setup();
         AllureManager.setAllureInfo("jenkins");
-//        LOGGER.log(Level.INFO, "Started WebDriverManager");
+        logger.info("Started WebDriverManager");
     }
 
     public WebDriver getDriver(String driverName){
