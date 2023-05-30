@@ -13,6 +13,9 @@
 
     <parameter name="timeout" value="10"/>
     <parameter name="executor" value="jenkins"/>
+    <parameter name="appendLog" value="true"/>
+    <!-- Supported levels: {onTestFailure,onTestEnd,onStep,noScreenshot}-->
+    <parameter name="screenshot" value="onFailure"/>
     <!-- Supported drivers: {CHROME,FIREFOX,OPERA,EDGE,IEXPLORER,CHROMIUM,SAFARI} (required installation/binary)-->
     <parameter name="driver" value="chrome"/>
     <!-- Anything except "yes" literal string will not maximise -->

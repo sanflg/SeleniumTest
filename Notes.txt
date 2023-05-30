@@ -125,6 +125,8 @@ On Allure
 
 7- Added allure logging with steps + log4j file output (check AllureLogger class for more info)
 
+8- In order to take screenshot on every steep, needed to
+
 ***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.
 ***************************************************

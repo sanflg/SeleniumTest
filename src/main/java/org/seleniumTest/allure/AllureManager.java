@@ -1,11 +1,7 @@
-package org.seleniumTest;
+package org.seleniumTest.allure;
 
-import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,13 +9,13 @@ import java.nio.file.FileSystems;
 import java.util.Properties;
 
 public class AllureManager {
-    private static final Properties properties = System.getProperties();
-    private static final String separator = FileSystems.getDefault().getSeparator();
+    private static final Properties PROPERTIES = System.getProperties();
+    private static final String SEPARATOR = FileSystems.getDefault().getSeparator();
 
     //TODO use Paths and less ugly implementation
-    private static final String outputDir = "#target#allure-results#".replace("#", separator);
+    private static final String outputDir = "#target#allure-results#".replace("#", SEPARATOR);
     //TODO add classloader reference for resources
-    private static final String executorDir = "#src#main#resources#executors#".replace("#", separator);
+    private static final String executorDir = "#src#main#resources#executors#".replace("#", SEPARATOR);
     private static final String projectDir = System.getProperty("user.dir");
     //TODO Obtain maven parameters for dynamic construction and blur sensitive params
     private static final String[] PARAMS = new String[]{
@@ -34,14 +30,6 @@ public class AllureManager {
         addCategoriesInfo();
     }
 
-    public static void attachScreenshotOnFailure(boolean testFailed){
-        if (testFailed) {
-            TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
-            ByteArrayInputStream src = new ByteArrayInputStream(ts.getScreenshotAs(OutputType.BYTES));
-            Allure.addAttachment("Screenshot", src);
-        }
-    }
-
     private static void addEnvironmentInfo() {
         File file = new File(projectDir + outputDir + "environment.properties");
 
@@ -51,7 +39,7 @@ public class AllureManager {
                     FileUtils.writeStringToFile(file,
                             String.format("<%s>=<%s>\n",
                                     param,
-                                    properties.get(param)),
+                                    PROPERTIES.get(param)),
                             StandardCharsets.UTF_8,
                             true);
                 }
@@ -83,7 +71,7 @@ public class AllureManager {
         try {
             if (!file.exists()) {
                 File info = new File(projectDir +
-                        "#src#main#resources#allureCategories.txt".replace("#", separator));
+                        "#src#main#resources#allureCategories.txt".replace("#", SEPARATOR));
 
                 FileUtils.writeStringToFile(file,
                         FileUtils.readFileToString(info,StandardCharsets.UTF_8),

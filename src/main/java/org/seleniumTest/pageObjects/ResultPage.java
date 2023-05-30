@@ -5,9 +5,9 @@ import static org.seleniumTest.utils.PageUtils.queryParamsPresent;
 import java.net.URL;
 import java.net.MalformedURLException;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.Level;
-import org.seleniumTest.DriverManager;
+import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
 public class ResultPage extends BasePage<ResultPage> {
@@ -15,12 +15,12 @@ public class ResultPage extends BasePage<ResultPage> {
     public static final String partialUrl = domain + "search?q=";
 
     //TODO fix term pool mess
-    public ResultPage() {
-        super(partialUrl + termPool.get());
+    public ResultPage(WebDriver driver) {
+        super(driver, partialUrl + termPool.get());
     }
 
-    public ResultPage(String term) {
-        super(partialUrl + term);
+    public ResultPage(WebDriver driver, String term) {
+        super(driver, partialUrl + term);
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
@@ -30,10 +30,10 @@ public class ResultPage extends BasePage<ResultPage> {
         SoftAssert softAssert = new SoftAssert();
 
         try {
-            actualUrl = new URL(DriverManager.getDriver().getCurrentUrl());
+            actualUrl = new URL(driver.getCurrentUrl());
             targetUrl = new URL(partialUrl + term);
         } catch (MalformedURLException e) {
-            LOGGER.log(Level.ERROR, "MalformedURLException building URL from driver.");
+//            LOGGER.log(Level.ERROR, "MalformedURLException building URL from driver.");
             throw new RuntimeException(e);
         }
 
