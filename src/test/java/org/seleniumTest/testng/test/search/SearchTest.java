@@ -3,7 +3,6 @@ package org.seleniumTest.testng.test.search;
 import io.qameta.allure.*;
 import org.apache.logging.log4j.Level;
 import org.seleniumTest.DriverManager;
-import org.seleniumTest.allure.AllureLogger;
 import org.testng.annotations.Test;
 import org.seleniumTest.testng.dataProviders.search.SearchDataProvider;
 

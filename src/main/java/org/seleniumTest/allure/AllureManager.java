@@ -1,5 +1,6 @@
 package org.seleniumTest.allure;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -81,5 +82,17 @@ public class AllureManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void fetchLogFile(String nameFile){
+        File file = new File(projectDir + outputDir + "logs" + SEPARATOR + nameFile + ".log");
+        byte[] fileBytes;
+        try {
+             fileBytes = FileUtils.readFileToByteArray(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Allure.getLifecycle().addAttachment("Log", "text/html","txt", fileBytes);
+
     }
 }
