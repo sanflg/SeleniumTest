@@ -2,6 +2,7 @@ package org.seleniumTest.pageObjects;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,8 +19,8 @@ public class SearchPage extends BasePage<SearchPage> {
     @FindBy(name = "btnK")
     private List<WebElement> searchButton;
 
-    public SearchPage() {
-        super(domain);
+    public SearchPage(WebDriver driver) {
+        super(driver, domain);
     }
 
     @Step("Search by {0} with '{1}' term")
@@ -27,7 +28,7 @@ public class SearchPage extends BasePage<SearchPage> {
         searchBox.sendKeys(term);
         searchBox.sendKeys(Keys.ESCAPE);
 
-        WebElement button = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(2)).until(
+        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(2)).until(
                 MoreExpectedConditions.anyElementToBeClickable(searchButton));
 
         switch (search) {
@@ -41,6 +42,6 @@ public class SearchPage extends BasePage<SearchPage> {
                 searchBox.sendKeys(Keys.ENTER);
                 break;
         }
-        return new ResultPage();
+        return new ResultPage(driver);
     }
 }

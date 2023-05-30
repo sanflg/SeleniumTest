@@ -2,7 +2,8 @@ package org.seleniumTest.testng.test.search;
 
 import io.qameta.allure.*;
 import org.apache.logging.log4j.Level;
-import org.seleniumTest.utils.AllureLogger;
+import org.seleniumTest.DriverManager;
+import org.seleniumTest.allure.AllureLogger;
 import org.testng.annotations.Test;
 import org.seleniumTest.testng.dataProviders.search.SearchDataProvider;
 
@@ -15,17 +16,17 @@ import org.seleniumTest.pageObjects.ResultPage;
 @Link("https://www.google.com.ar/")
 @Owner("Santiago Lataza")
 public class SearchTest extends BaseTest {
-    protected static final AllureLogger LOGGER = new AllureLogger(SearchTest.class);
+//    protected static final AllureLogger LOGGER = new AllureLogger(SearchTest.class);
 
     @Test(dataProvider = "button", dataProviderClass = SearchDataProvider.class)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
     public void googleHomePage_searchByButton(String search, String term) {
-        SearchPage searchPage = new SearchPage().goTo();
+        SearchPage searchPage = new SearchPage(DriverManager.getInstance().getDriver()).goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        LOGGER.log(Level.INFO, "Search with button worked correctly.");
+//        LOGGER.log(Level.INFO, "Search with button worked correctly.");
     }
 
     @Test(dataProvider = "submit", dataProviderClass = SearchDataProvider.class)
@@ -33,10 +34,10 @@ public class SearchTest extends BaseTest {
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
     public void googleHomePage_searchBySubmit(String search, String term) {
-        SearchPage searchPage = new SearchPage().goTo();
+        SearchPage searchPage = new SearchPage(DriverManager.getInstance().getDriver()).goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        LOGGER.log(Level.INFO,"Search with submit worked correctly.");
+//        LOGGER.log(Level.INFO,"Search with submit worked correctly.");
     }
 
     @Test(dataProvider = "enter", dataProviderClass = SearchDataProvider.class)
@@ -44,9 +45,9 @@ public class SearchTest extends BaseTest {
     @Description("Verify google search by pressing enter after declaring the search term in the text box.")
     @Story("TT-1")
     public void googleHomePage_searchByEnter(String search, String term) {
-        SearchPage searchPage = new SearchPage().goTo();
+        SearchPage searchPage = new SearchPage(DriverManager.getInstance().getDriver()).goTo();
         ResultPage resultPage = searchPage.searchBy(search, term);
         resultPage.assertIsCurrentPage(term);
-        LOGGER.log(Level.INFO,"Search with enter worked correctly.");
+//        LOGGER.log(Level.INFO,"Search with enter worked correctly.");
     }
 }

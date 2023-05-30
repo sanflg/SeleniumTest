@@ -6,12 +6,13 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.logging.log4j.Level;
+import org.seleniumTest.allure.AllureLogger;
 
 /**
  * Added utilities for PageObjectModel pages manipulation and checks.
  */
 public class PageUtils {
-    private static final AllureLogger LOGGER = new AllureLogger(PageUtils.class);
+//    private static final AllureLogger LOGGER = new AllureLogger(PageUtils.class);
 
     /**
      * Build a Map<String,String> from the query of an url
@@ -20,7 +21,7 @@ public class PageUtils {
      * @return Map of key-values using the query from the url.
      */
     public static Map<String, String> getQueryParamsMap(URL url) {
-        LOGGER.log(Level.INFO,"Building parameters map from url: " + url.toString());
+//        LOGGER.log(Level.INFO,"Building parameters map from url: " + url.toString());
 
         Map<String, String> map = new LinkedHashMap<>();
 
@@ -42,9 +43,9 @@ public class PageUtils {
      * @see #getQueryParamsMap(URL)
      */
     public static boolean queryParamsPresent(URL contained, URL container) {
-        LOGGER.log(Level.INFO, String.format("Started comparison of query params: \n\t<%s>\n\t<%s>",
-                contained.toString(),
-                container.toString()));
+//        LOGGER.log(Level.INFO, String.format("Started comparison of query params: \n\t<%s>\n\t<%s>",
+//                contained.toString(),
+//                container.toString()));
 
         Map<String, String> containerMap = getQueryParamsMap(container);
         AtomicBoolean comparisonFlag = new AtomicBoolean(true);
@@ -52,7 +53,7 @@ public class PageUtils {
         getQueryParamsMap(contained).forEach((key, value) -> {
             if (!containerMap.get(key).equals(value)) {
                 comparisonFlag.set(false);
-                LOGGER.log(Level.ERROR, "Url params are not contained on target url");
+//                LOGGER.log(Level.ERROR, "Url params are not contained on target url");
             }
         });
 
