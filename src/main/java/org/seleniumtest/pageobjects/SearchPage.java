@@ -1,4 +1,4 @@
-package org.seleniumTest.pageObjects;
+package org.seleniumtest.pageobjects;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
@@ -7,8 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import org.seleniumTest.DriverManager;
-import org.seleniumTest.utils.MoreExpectedConditions;
+import org.seleniumtest.utils.MoreExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
@@ -20,7 +19,7 @@ public class SearchPage extends BasePage<SearchPage> {
     private List<WebElement> searchButton;
 
     public SearchPage(WebDriver driver) {
-        super(driver, domain);
+        super(driver, DOMAIN);
     }
 
     @Step("Search by {0} with '{1}' term")
@@ -28,7 +27,7 @@ public class SearchPage extends BasePage<SearchPage> {
         searchBox.sendKeys(term);
         searchBox.sendKeys(Keys.ESCAPE);
 
-        logger.info("Starting search process by '{}', with '{}' as term", search, term);
+        LOGGER.info("Starting search process by '{}', with '{}' as term", search, term);
 
         WebElement button = new WebDriverWait(driver, Duration.ofSeconds(2)).until(
                 MoreExpectedConditions.anyElementToBeClickable(searchButton));
@@ -43,7 +42,9 @@ public class SearchPage extends BasePage<SearchPage> {
             case "enter":
                 searchBox.sendKeys(Keys.ENTER);
                 break;
+            default:
+                throw new RuntimeException("Invalid search method defined.");
         }
-        return new ResultPage(driver);
+        return new ResultPage(driver, term);
     }
 }

@@ -41,5 +41,7 @@ Epic 4:
     Added picoContainers implementation for shared data between steps.
     Added allure logging with steps + log4j file output (check AllureLogger class for more info)
     Added testManager to handle all common behaviors to testNG and cucumber, and param consumption.
+    Added screenshot on different parametrized scenarios
+    Added log per test in allure
 
 

@@ -1,4 +1,4 @@
-package org.seleniumTest.pageObjects;
+package org.seleniumtest.pageobjects;
 
 import static org.testng.Assert.assertEquals;
 
@@ -12,21 +12,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage<T extends BasePage<T>> {
-    //TODO 3 Check if there is allure logger to avoid duplicate login calls (log4j and allure)
-    protected final static String domain = "https://www.google.com.ar/";
-    protected static final Logger logger = LogManager.getLogger(BasePage.class);
+    protected static final String DOMAIN = "https://www.google.com.ar/";
+    protected static final Logger LOGGER = LogManager.getLogger(BasePage.class);
     protected final WebDriver driver;
     protected final URL url;
 
-    //TODO 4 There is a way to generify parameters declarations in testng.xml files?
-    //TODO 3 Fix pom failing to resolve dependencies
-    //TODO Add driver on constructor
-    public BasePage(WebDriver driver, String url) {
+    protected BasePage(WebDriver driver, String url) {
         try {
             this.driver = driver;
             this.url = new URL(url);
         } catch (MalformedURLException e) {
-            logger.error(String.format("MalformedURLException URL generation for <%s>", url));
+            LOGGER.error(String.format("MalformedURLException URL generation for <%s>", url));
             throw new RuntimeException(e);
         }
         PageFactory.initElements(driver, this);
@@ -34,7 +30,7 @@ public abstract class BasePage<T extends BasePage<T>> {
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
     public void assertIsCurrentPage() {
-        assertEquals(driver.getCurrentUrl(), domain);
+        assertEquals(driver.getCurrentUrl(), DOMAIN);
     }
 
     @Step("Go to the desired url by page.")

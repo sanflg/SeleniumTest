@@ -1,10 +1,11 @@
-package org.seleniumTest.utils;
+package org.seleniumtest.utils;
 
 import java.net.URL;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +15,8 @@ import org.apache.logging.log4j.Logger;
 public class PageUtils {
     private static final Logger logger = LogManager.getLogger(PageUtils.class);
 
+    private PageUtils(){}
+
     /**
      * Build a Map<String,String> from the query of an url
      *
@@ -21,7 +24,7 @@ public class PageUtils {
      * @return Map of key-values using the query from the url.
      */
     public static Map<String, String> getQueryParamsMap(URL url) {
-        logger.info("Building parameters map from url: " + url.toString());
+        logger.info("Building parameters map from url: {}", url);
 
         Map<String, String> map = new LinkedHashMap<>();
 
@@ -43,9 +46,7 @@ public class PageUtils {
      * @see #getQueryParamsMap(URL)
      */
     public static boolean queryParamsPresent(URL contained, URL container) {
-        logger.info(String.format("Started comparison of query params: \n\t<%s>\n\t<%s>",
-                contained.toString(),
-                container.toString()));
+        logger.info("Started comparison of query params: \n\t<{}>\n\t<{}>", contained, container);
 
         Map<String, String> containerMap = getQueryParamsMap(container);
         AtomicBoolean comparisonFlag = new AtomicBoolean(true);

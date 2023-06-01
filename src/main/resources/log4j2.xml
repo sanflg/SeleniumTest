@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" packages="my.logging.package">
+<Configuration status="warn" packages="src.main.resources">
     <Appenders>
         <Routing name="Routing">
             <Routes pattern="$${thread:threadName}">

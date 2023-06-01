@@ -1,4 +1,4 @@
-package org.seleniumTest.cucumber;
+package org.seleniumtest.cucumber;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -9,15 +9,13 @@ import org.testng.annotations.Test;
 @Test
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        glue = {"org.seleniumTest"},
+        glue = {"org.seleniumtest"},
         plugin = {"pretty",
-                "org.seleniumTest.allure.screenshot.StepScreenshotPlugin",
+                "org.seleniumtest.allure.screenshot.StepScreenshotPlugin",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         tags = "@Regression"
 )
 public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
-    // TODO Avoid repetition of cucumber scenarios in allure report
-    // TODO More test cases for other suite
 
     public CucumberRunnerTests() {
         Allure.getLifecycle();
