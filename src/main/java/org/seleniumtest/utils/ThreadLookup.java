@@ -1,4 +1,4 @@
-package org.seleniumTest.utils;
+package org.seleniumtest.utils;
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;

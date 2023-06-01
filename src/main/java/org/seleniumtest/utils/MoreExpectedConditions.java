@@ -1,4 +1,4 @@
-package org.seleniumTest.utils;
+package org.seleniumtest.utils;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +13,9 @@ import java.util.List;
  * Some more WebDriver expected conditions not found in {@link org.openqa.selenium.support.ui.ExpectedConditions}.
  */
 public class MoreExpectedConditions {
+
+    private MoreExpectedConditions(){}
+
     /**
      * @param elements Web elements to check.
      * @return The first web element found to be clickable.
@@ -35,7 +38,8 @@ public class MoreExpectedConditions {
                         if (visibleElement != null && visibleElement.isEnabled()) {
                             return visibleElement;
                         }
-                    } catch (StaleElementReferenceException ignored) {
+                    } catch (StaleElementReferenceException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return null;

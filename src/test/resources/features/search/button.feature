@@ -41,9 +41,9 @@ Feature: Button Search
       # For code to be executed before the actual test case we can use "Background" notation
 
       # We can define multi code executions in just one line and being more syntactically correct using "And" and "But".
-      Given User is in search page
-      When User does a <search method> search with <search term>
-      Then User is in correct search tab with term <search term>
+      Given user is in search page
+      When user does a <search method> search with <search term>
+      Then user is in correct search tab with term <search term>
 
       # To send information more complex that simple vars like maps and matrices to test cases definitions we can use
       # "Data Tables", check more on https://cucumber.io/docs/gherkin/reference/ and search for Data Tables.
