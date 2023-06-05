@@ -48,4 +48,5 @@ Epic 4:
 Epic 5:
     Added restAssured, Jackson and lombok dependencies.
     Solved duplication of reports by parametrizing allure test report dependency in pom
+    Evaluating API calls dependency.
 
