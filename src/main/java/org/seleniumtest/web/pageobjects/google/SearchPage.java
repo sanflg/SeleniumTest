@@ -1,4 +1,4 @@
-package org.seleniumtest.pageobjects.google;
+package org.seleniumtest.web.pageobjects.google;
 
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;

@@ -1,4 +1,4 @@
-package org.seleniumtest.pageobjects.google;
+package org.seleniumtest.web.pageobjects.google;
 
 import static org.seleniumtest.utils.web.PageUtils.queryParamsPresent;
 
@@ -21,6 +21,7 @@ public class ResultPage extends BasePage<ResultPage> {
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
+    // TODO nested steps missing.
     public void assertIsCurrentPage(String term) {
         URL actualUrl;
         URL targetUrl;

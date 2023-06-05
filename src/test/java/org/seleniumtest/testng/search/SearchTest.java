@@ -1,4 +1,4 @@
-package org.seleniumtest.testng.test.search;
+package org.seleniumtest.testng.search;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -10,10 +10,9 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.seleniumtest.DriverManager;
 import org.testng.annotations.Test;
-import org.seleniumtest.testng.dataProviders.search.SearchDataProvider;
 
-import org.seleniumtest.pageobjects.google.SearchPage;
-import org.seleniumtest.pageobjects.google.ResultPage;
+import org.seleniumtest.web.pageobjects.google.SearchPage;
+import org.seleniumtest.web.pageobjects.google.ResultPage;
 
 @Epic("SearchEpic")
 @Feature("Search")

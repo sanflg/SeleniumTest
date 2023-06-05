@@ -5,7 +5,7 @@ import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.lookup.StrLookup;
 
 /**
- * Log4j2 pluging to search the name of the thread to generate one log for each test.
+ * Log4j2 plugging to search the name of the thread to generate one log for each test.
  */
 @Plugin(name = "thread", category = StrLookup.CATEGORY)
 public class ThreadLookup implements StrLookup {

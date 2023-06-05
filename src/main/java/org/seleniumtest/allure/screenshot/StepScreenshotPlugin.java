@@ -6,7 +6,7 @@ import io.cucumber.plugin.event.TestStepFinished;
 import org.seleniumtest.DriverManager;
 
 /**
- * StepScreenshotPluging is used to override the behavior of ConcurrentEventListener in the testStep is finished.
+ * StepScreenshotPlugging is used to override the behavior of ConcurrentEventListener in the testStep is finished.
  */
 public class StepScreenshotPlugin implements ConcurrentEventListener {
 

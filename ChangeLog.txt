@@ -2,7 +2,7 @@ Epic 1:
 	Implemented testNg.xml	Parametrized driverManager -> Base test and testing.xml
 	Added maximize -> Optional
 	Allure implemented
-		allure-results in target directory so it is erased after each run
+		allure-results in target directory so, it is erased after each run
 	Moved Log.log result to target for same above
 	SoftAssert for isCurrentPage();
 	Added config directory
@@ -12,7 +12,8 @@ Epic 1:
 	Allure + cucumber (half done)
 
 Epic 2:
-	Extent reporting option discarded (Allure tiene integracion con jira y extent no, tiene el report mas descriptivo, es mas usado y con mas docu
+	Extent reporting option discarded (Allure haves jira integration and extent no, more descriptive log, is more used
+	    and with more documentation)
 	DriverManager singleton with threadLocal with background annotation for beforeAll and Before for driver get.
 	NOT SO HORRIBLE IMPLEMENTATION FOR DRIVERS FOR CUCUMBER
 	Solve double driver instantiation on start
@@ -44,4 +45,7 @@ Epic 4:
     Added screenshot on different parametrized scenarios
     Added log per test in allure
 
+Epic 5:
+    Added restAssured, Jackson and lombok dependencies.
+    Solved duplication of reports by parametrizing allure test report dependency in pom
 
