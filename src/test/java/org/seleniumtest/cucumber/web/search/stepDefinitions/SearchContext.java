@@ -1,4 +1,4 @@
-package org.seleniumtest.cucumber.stepDefinitions;
+package org.seleniumtest.cucumber.web.search.stepDefinitions;
 
 public class SearchContext {
     private String term;

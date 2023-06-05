@@ -1,4 +1,4 @@
-package org.seleniumtest.cucumber.stepDefinitions;
+package org.seleniumtest.cucumber.web.search.stepDefinitions;
 
 /**
  * Class with all general implementations for glue objects in a package

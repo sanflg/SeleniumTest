@@ -1,18 +1,21 @@
-package org.seleniumtest.pageobjects;
+package org.seleniumtest.pageobjects.google;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import org.seleniumtest.utils.MoreExpectedConditions;
+import org.seleniumtest.utils.web.MoreExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
 
 public class SearchPage extends BasePage<SearchPage> {
+    protected static final Logger LOGGER = LogManager.getLogger(SearchPage.class);
     @FindBy(name = "q")
     private WebElement searchBox;
     @FindBy(name = "btnK")
