@@ -12,8 +12,8 @@ import org.seleniumtest.DriverManager;
 import org.testng.annotations.Test;
 import org.seleniumtest.testng.dataProviders.search.SearchDataProvider;
 
-import org.seleniumtest.pageobjects.SearchPage;
-import org.seleniumtest.pageobjects.ResultPage;
+import org.seleniumtest.pageobjects.google.SearchPage;
+import org.seleniumtest.pageobjects.google.ResultPage;
 
 @Epic("SearchEpic")
 @Feature("Search")

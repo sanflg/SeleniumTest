@@ -1,16 +1,19 @@
-package org.seleniumtest.pageobjects;
+package org.seleniumtest.pageobjects.google;
 
-import static org.seleniumtest.utils.PageUtils.queryParamsPresent;
+import static org.seleniumtest.utils.web.PageUtils.queryParamsPresent;
 
 import java.net.URL;
 import java.net.MalformedURLException;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class ResultPage extends BasePage<ResultPage> {
+    protected static final Logger LOGGER = LogManager.getLogger(ResultPage.class);
     public static final String PARTIAL_URL = DOMAIN + "search?q=";
 
     public ResultPage(WebDriver driver, String term) {

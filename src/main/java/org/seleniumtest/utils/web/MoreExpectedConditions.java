@@ -1,4 +1,4 @@
-package org.seleniumtest.utils;
+package org.seleniumtest.utils.web;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Some more WebDriver expected conditions not found in {@link org.openqa.selenium.support.ui.ExpectedConditions}.
+ * @see ExpectedConditions
  */
 public class MoreExpectedConditions {
 

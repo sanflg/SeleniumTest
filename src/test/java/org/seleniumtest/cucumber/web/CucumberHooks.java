@@ -1,4 +1,4 @@
-package org.seleniumtest.cucumber;
+package org.seleniumtest.cucumber.web;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;

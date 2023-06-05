@@ -20,7 +20,8 @@ public class AllureManager {
             "java.vendor.version",
             "driver",
             "maximize",
-            "threadCount"};
+            "threadCount,",
+            "timeout"};
 
     private AllureManager(){}
 

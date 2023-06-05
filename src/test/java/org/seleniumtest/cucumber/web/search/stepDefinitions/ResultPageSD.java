@@ -1,8 +1,8 @@
-package org.seleniumtest.cucumber.stepDefinitions;
+package org.seleniumtest.cucumber.web.search.stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import org.seleniumtest.DriverManager;
-import org.seleniumtest.pageobjects.ResultPage;
+import org.seleniumtest.pageobjects.google.ResultPage;
 
 public final class ResultPageSD {
     private final ResultPage resultPage;

@@ -1,4 +1,4 @@
-package org.seleniumtest.utils;
+package org.seleniumtest.utils.web;
 
 import java.net.URL;
 import java.util.Map;

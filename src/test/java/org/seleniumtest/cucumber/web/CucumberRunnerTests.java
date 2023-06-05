@@ -1,4 +1,4 @@
-package org.seleniumtest.cucumber;
+package org.seleniumtest.cucumber.web;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
