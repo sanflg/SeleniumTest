@@ -134,6 +134,14 @@ On Allure
     (adding each dependency to it respective profile in the pom will result in unresolved packages)
 
 ***************************************************
+On API
+***************************************************
+
+1- Discarded the use of restAssured because this generates a design problem with cucumber, an already BDD stateless
+    system that collides wih the idea of oneliner implementations for ResAssured, may work wih some sort of api call
+    builder
+
+***************************************************
 On GlueObjects (PageObjects with glue notation) Status = Discarded.
 ***************************************************
 
