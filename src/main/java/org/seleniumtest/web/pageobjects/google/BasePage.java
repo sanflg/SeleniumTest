@@ -1,4 +1,4 @@
-package org.seleniumtest.pageobjects.google;
+package org.seleniumtest.web.pageobjects.google;
 
 import static org.testng.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package org.seleniumtest.testng.dataProviders.search;
+package org.seleniumtest.testng.search;
 
 import org.testng.annotations.DataProvider;
 

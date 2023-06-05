@@ -1,23 +1,22 @@
-package org.seleniumtest.cucumber.web;
+package org.seleniumtest.cucumber.api;
 
-import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import io.qameta.allure.Allure;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"org.seleniumtest"},
+        features = {"src/test/resources/features/api"},
+        glue = {"org.seleniumtest.cucumber.api"},
         plugin = {"pretty",
-                "org.seleniumtest.allure.screenshot.StepScreenshotPlugin",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         tags = "@Regression"
 )
-public class CucumberRunnerTests extends AbstractTestNGCucumberTests {
+public class CucumberApiRunner extends AbstractTestNGCucumberTests {
 
-    public CucumberRunnerTests() {
+    public CucumberApiRunner() {
         Allure.getLifecycle();
     }
 

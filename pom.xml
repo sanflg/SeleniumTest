@@ -24,16 +24,19 @@
         <testng-version>7.7.1</testng-version>
         <log4j-core-version>2.20.0</log4j-core-version>
         <selenium-java-version>4.9.1</selenium-java-version>
-        <allure-testng-version>2.22.0</allure-testng-version>
         <jul-to-slf4j-version>2.0.7</jul-to-slf4j-version>
         <cucumber-version>7.12.0</cucumber-version>
         <gherkin-version>26.0.1</gherkin-version>
-        <allure-cucumber7-jvm-version>2.21.0</allure-cucumber7-jvm-version>
         <maven-compiler-plugin-version>3.11.0</maven-compiler-plugin-version>
         <maven-surefire-plugin-version>3.0.0-M7</maven-surefire-plugin-version>
         <aspectjweaver-version>1.9.8.RC2</aspectjweaver-version>
         <allure-maven-version>2.22.0</allure-maven-version>
+        <allure-test-report-version>2.21.0</allure-test-report-version>
+        <allure-test-report-arifact>allure-cucumber7-jvm</allure-test-report-arifact>
         <cucumber-picocontainer-version>7.11.1</cucumber-picocontainer-version>
+        <rest-assured-version>5.3.0</rest-assured-version>
+        <jackson-core-version>2.15.2</jackson-core-version>
+        <lombok-version>1.18.26</lombok-version>
     </properties>
 
     <dependencies>
@@ -72,11 +75,6 @@
         </dependency>
 
         <!-- Reporting framework -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure-testng-version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -104,48 +102,37 @@
             <version>${gherkin-version}</version>
             <scope>test</scope>
         </dependency>
-        
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>${allure-cucumber7-jvm-version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber-picocontainer-version}</version>
         </dependency>
-    </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin-version}</version>
-                <configuration>
-                    <properties>
-                        <property>
-                            <name>dataproviderthreadcount</name>
-                            <value>${threadCount}</value>
-                        </property>
-                    </properties>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver-version}/aspectjweaver-${aspectjweaver-version}.jar"
-                    </argLine>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectjweaver-version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>${allure-test-report-arifact}</artifactId>
+            <version>${allure-test-report-version}</version>
+        </dependency>
+    </dependencies>
 
     <profiles>
         <profile>
@@ -172,7 +159,7 @@
             </build>
         </profile>
         <profile>
-            <id>Cucumber</id>
+            <id>CucumberWeb</id>
             <build>
                 <plugins>
                     <plugin>
@@ -187,7 +174,30 @@
                                 </property>
                             </properties>
                             <suiteXmlFiles>
-                                <suiteXmlFile>config/cucumber.xml</suiteXmlFile>
+                                <suiteXmlFile>config/cucumberWeb.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>CucumberApi</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin-version}</version>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>dataproviderthreadcount</name>
+                                    <value>${threadCount}</value>
+                                </property>
+                            </properties>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>config/cucumberApi.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
