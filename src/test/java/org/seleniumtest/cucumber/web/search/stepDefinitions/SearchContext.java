@@ -3,7 +3,8 @@ package org.seleniumtest.cucumber.web.search.stepDefinitions;
 public class SearchContext {
     private String term;
 
-    public SearchContext(){}
+    public SearchContext() {
+    }
 
     public String getTerm() {
         return term;

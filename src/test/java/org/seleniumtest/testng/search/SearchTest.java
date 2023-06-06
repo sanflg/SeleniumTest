@@ -1,18 +1,11 @@
 package org.seleniumtest.testng.search;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Link;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Description;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.seleniumtest.DriverManager;
 import org.testng.annotations.Test;
 
-import org.seleniumtest.web.pageobjects.google.SearchPage;
 import org.seleniumtest.web.pageobjects.google.ResultPage;
+import org.seleniumtest.web.pageobjects.google.SearchPage;
 
 @Epic("SearchEpic")
 @Feature("Search")

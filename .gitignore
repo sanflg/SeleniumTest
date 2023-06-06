@@ -1,5 +1,4 @@
-.idea
-/target
+/.idea/
+/target/
 /src/main/resources/Log.log
-SeleniumTest.iml
-allure-results
+/*.iml

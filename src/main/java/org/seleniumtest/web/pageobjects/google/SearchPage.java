@@ -32,12 +32,10 @@ public class SearchPage extends BasePage<SearchPage> {
 
         LOGGER.info("Starting search process by '{}', with '{}' as term", search, term);
 
-        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(2)).until(
-                MoreExpectedConditions.anyElementToBeClickable(searchButton));
-
         switch (search) {
             case "button":
-                button.click();
+                new WebDriverWait(driver, Duration.ofSeconds(2)).until(
+                        MoreExpectedConditions.anyElementToBeClickable(searchButton)).click();
                 break;
             case "submit":
                 searchBox.submit();

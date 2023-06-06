@@ -17,6 +17,7 @@
         <driver>chrome</driver>
         <maximize>false</maximize>
         <executor>jenkins</executor>
+        <screenshot>onStep</screenshot>
         <timeout>10</timeout>
         <threadCount>3</threadCount>
 

@@ -1,14 +1,14 @@
 package org.seleniumtest;
 
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.seleniumtest.allure.AllureManager;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverManager {
     private static final String DEFAULT_DRIVER_NAME = "DEFAULT";
@@ -17,14 +17,15 @@ public class DriverManager {
 
     private final ThreadLocal<Map<String, WebDriver>> webDrivers = ThreadLocal.withInitial(HashMap::new);
 
-    private final long timeout = Long.parseLong(System.getProperty("timeout"));
-    private final String driverType = System.getProperty("driver");
-    private final String executor = System.getProperty("executor");
-    private final String maximize = System.getProperty("maximize");
+    private final String driverType = System.getProperty("driver", "chrome");
+    private final String executor = System.getProperty("executor", "manual");
+    private final boolean maximize = Boolean.getBoolean(System.getProperty("maximize", "false"));
+    private final long timeout = Long.parseLong(System.getProperty("timeout", "10"));
 
     private WebDriverManager webDriverManager;
 
-    private DriverManager() {}
+    private DriverManager() {
+    }
 
     public void driverManagerSetup() {
         webDriverManager = WebDriverManager.getInstance(driverType.toUpperCase());
@@ -37,9 +38,10 @@ public class DriverManager {
         Map<String, WebDriver> drivers = webDrivers.get();
         WebDriver driver = drivers.get(driverName);
         if (driver == null) {
+            logger.error(">>>>>>>>>> GET DRIVER <<<<<<<<<<");
             driver = webDriverManager.create();
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(timeout));
-            if (maximize.equals("true")){
+            if (maximize) {
                 driver.manage().window().maximize();
             }
             drivers.put(driverName, driver);

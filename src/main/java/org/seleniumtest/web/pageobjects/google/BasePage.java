@@ -2,6 +2,8 @@ package org.seleniumtest.web.pageobjects.google;
 
 import static org.testng.Assert.assertEquals;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.MalformedURLException;
 
@@ -20,9 +22,9 @@ public abstract class BasePage<T extends BasePage<T>> {
     protected BasePage(WebDriver driver, String url) {
         try {
             this.driver = driver;
-            this.url = new URL(url);
-        } catch (MalformedURLException e) {
-            LOGGER.error(String.format("MalformedURLException URL generation for <%s>", url));
+            this.url = new URI(url).toURL();
+        } catch (MalformedURLException | URISyntaxException e) {
+            LOGGER.error(String.format("Invalid URL <%s>", url));
             throw new RuntimeException(e);
         }
         PageFactory.initElements(driver, this);

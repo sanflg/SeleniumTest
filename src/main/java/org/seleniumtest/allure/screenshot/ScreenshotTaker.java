@@ -13,20 +13,21 @@ import java.time.LocalDateTime;
  */
 public class ScreenshotTaker {
 
-    private ScreenshotTaker(){}
+    private ScreenshotTaker() {
+    }
 
     /**
      * Method to evaluate if the test is a screenshot candidate at the termination process. In order to manage in step
      * screenshots, refer to StepScreenshotPlugging class.
      *
-     * @param driver Driver used to take the screenshot.
+     * @param driver           Driver used to take the screenshot.
      * @param screenshotConfig Declares when to take screenshots for allure
-     * @param isFailed If test fails
+     * @param isFailed         If test fails
      * @see StepScreenshotPlugin
      */
     public static void evaluateScreenshot(WebDriver driver, String screenshotConfig, boolean isFailed) {
-        if ((screenshotConfig.equalsIgnoreCase("onTestEnd")) ||
-                (screenshotConfig.equalsIgnoreCase("onTestFailure")) &&
+        if (("onTestEnd".equalsIgnoreCase(screenshotConfig)) ||
+                ("onTestFailure".equalsIgnoreCase(screenshotConfig)) &&
                         isFailed) {
             takeAndAttachScreenshot(driver);
         }

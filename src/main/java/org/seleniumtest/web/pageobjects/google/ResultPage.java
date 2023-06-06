@@ -2,8 +2,8 @@ package org.seleniumtest.web.pageobjects.google;
 
 import static org.seleniumtest.utils.web.PageUtils.queryParamsPresent;
 
-import java.net.URL;
-import java.net.MalformedURLException;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +17,7 @@ public class ResultPage extends BasePage<ResultPage> {
     public static final String PARTIAL_URL = DOMAIN + "search?q=";
 
     public ResultPage(WebDriver driver, String term) {
-        super(driver, PARTIAL_URL + term);
+        super(driver, PARTIAL_URL + URLEncoder.encode(term, StandardCharsets.UTF_8));
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
@@ -28,8 +28,8 @@ public class ResultPage extends BasePage<ResultPage> {
         SoftAssert softAssert = new SoftAssert();
 
         try {
-            actualUrl = new URL(driver.getCurrentUrl());
-            targetUrl = new URL(PARTIAL_URL + term);
+            actualUrl = new URI(driver.getCurrentUrl()).toURL();
+            targetUrl = new URI(PARTIAL_URL + URLEncoder.encode(term, StandardCharsets.UTF_8)).toURL();
 
             softAssert.assertEquals(actualUrl.getProtocol(), targetUrl.getProtocol());
             softAssert.assertEquals(actualUrl.getHost(), targetUrl.getHost());
@@ -38,8 +38,8 @@ public class ResultPage extends BasePage<ResultPage> {
             softAssert.assertTrue(queryParamsPresent(targetUrl, actualUrl));
 
             softAssert.assertAll();
-        } catch (MalformedURLException e) {
-            LOGGER.error("MalformedURLException building URL from driver.");
+        } catch (MalformedURLException | URISyntaxException e) {
+            LOGGER.error("Error building URL from driver.");
             Assert.fail();
         }
     }
