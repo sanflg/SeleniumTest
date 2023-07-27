@@ -11,11 +11,11 @@ import org.seleniumtest.allure.AllureManager;
 import org.seleniumtest.allure.screenshot.ScreenshotTaker;
 
 public class CucumberHooks {
-    private static final Logger logger = LogManager.getLogger(CucumberHooks.class);
+    private static final Logger LOGGER = LogManager.getLogger(CucumberHooks.class);
 
     @BeforeAll
     public static void cucumberBeforeAll() {
-        logger.error(">>>>>>>>>> DRIVER MANAGER SETUP <<<<<<<<<<");
+        LOGGER.error(">>>>>>>>>> DRIVER MANAGER SETUP <<<<<<<<<<");
         DriverManager.getInstance().driverManagerSetup();
     }
 

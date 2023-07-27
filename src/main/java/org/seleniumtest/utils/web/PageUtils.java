@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
  * Added utilities for PageObjectModel pages manipulation and checks.
  */
 public class PageUtils {
-    private static final Logger logger = LogManager.getLogger(PageUtils.class);
+    private static final Logger LOGGER = LogManager.getLogger(PageUtils.class);
 
     private PageUtils(){}
 
@@ -24,7 +24,7 @@ public class PageUtils {
      * @return Map of key-values using the query from the url.
      */
     public static Map<String, String> getQueryParamsMap(URL url) {
-        logger.info("Building parameters map from url: {}", url);
+        LOGGER.info("Building parameters map from url: {}", url);
 
         Map<String, String> map = new LinkedHashMap<>();
 
@@ -46,7 +46,7 @@ public class PageUtils {
      * @see #getQueryParamsMap(URL)
      */
     public static boolean queryParamsPresent(URL contained, URL container) {
-        logger.info("Started comparison of query params: \n\t<{}>\n\t<{}>", contained, container);
+        LOGGER.info("Started comparison of query params: \n\t<{}>\n\t<{}>", contained, container);
 
         Map<String, String> containerMap = getQueryParamsMap(container);
         AtomicBoolean comparisonFlag = new AtomicBoolean(true);
@@ -54,7 +54,7 @@ public class PageUtils {
         getQueryParamsMap(contained).forEach((key, value) -> {
             if (!containerMap.get(key).equals(value)) {
                 comparisonFlag.set(false);
-                logger.error("Url params are not contained on target url");
+                LOGGER.error("Url params are not contained on target url");
             }
         });
 

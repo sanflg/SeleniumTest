@@ -17,15 +17,14 @@ public abstract class BasePage<T extends BasePage<T>> {
     protected static final String DOMAIN = "https://www.google.com.ar/";
     protected static final Logger LOGGER = LogManager.getLogger(BasePage.class);
     protected final WebDriver driver;
-    protected final URL url;
+    protected URL url = null;
 
     protected BasePage(WebDriver driver, String url) {
+        this.driver = driver;
         try {
-            this.driver = driver;
             this.url = new URI(url).toURL();
         } catch (MalformedURLException | URISyntaxException e) {
-            LOGGER.error(String.format("Invalid URL <%s>", url));
-            throw new RuntimeException(e);
+            LOGGER.error(String.format("Invalid URL <%s>", url), e);
         }
         PageFactory.initElements(driver, this);
     }

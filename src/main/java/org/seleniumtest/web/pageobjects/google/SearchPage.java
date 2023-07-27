@@ -3,6 +3,7 @@ package org.seleniumtest.web.pageobjects.google;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,7 +45,7 @@ public class SearchPage extends BasePage<SearchPage> {
                 searchBox.sendKeys(Keys.ENTER);
                 break;
             default:
-                throw new RuntimeException("Invalid search method defined.");
+                throw new InvalidArgumentException("Invalid search method defined.");
         }
         return new ResultPage(driver, term);
     }
