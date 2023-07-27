@@ -2,6 +2,8 @@ package org.seleniumtest.allure;
 
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +24,7 @@ public class AllureManager {
             "maximize",
             "threadCount,",
             "timeout"};
+    private static final Logger LOGGER = LogManager.getLogger(AllureManager.class);
 
     private AllureManager(){}
 
@@ -46,7 +49,7 @@ public class AllureManager {
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("Unable to write environment info on environment.properties file", e);
         }
     }
 
@@ -63,7 +66,7 @@ public class AllureManager {
                         true);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("Unable to write executor info on executor.json file", e);
         }
     }
 
@@ -80,17 +83,17 @@ public class AllureManager {
                         true);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("Unable to add categories info on categories.json file", e);
         }
     }
 
     public static void fetchLogFile(String nameFile) {
         File file = new File(PROJECT_DIR + OUTPUT_DIR + "logs" + SEPARATOR + nameFile + ".log");
-        byte[] fileBytes;
+        byte[] fileBytes = null;
         try {
             fileBytes = FileUtils.readFileToByteArray(file);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("Unable to fetch log file", e);
         }
         Allure.getLifecycle().addAttachment("Log", "text/html", "txt", fileBytes);
 

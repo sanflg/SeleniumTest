@@ -21,7 +21,6 @@ public class ResultPage extends BasePage<ResultPage> {
     }
 
     @Step("Check that the current driver url is the same as the desired at the instantiation moment.")
-    // TODO nested steps missing.
     public void assertIsCurrentPage(String term) {
         URL actualUrl;
         URL targetUrl;
@@ -39,7 +38,7 @@ public class ResultPage extends BasePage<ResultPage> {
 
             softAssert.assertAll();
         } catch (MalformedURLException | URISyntaxException e) {
-            LOGGER.error("Error building URL from driver.");
+            LOGGER.error("Error building URL from driver or page url is incorrectly set.");
             Assert.fail();
         }
     }

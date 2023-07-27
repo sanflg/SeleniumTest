@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class DriverManager {
     private static final String DEFAULT_DRIVER_NAME = "DEFAULT";
-    private static final Logger logger = LogManager.getLogger(DriverManager.class);
+    private static final Logger LOGGER = LogManager.getLogger(DriverManager.class);
     private static final DriverManager instance = new DriverManager();
 
     private final ThreadLocal<Map<String, WebDriver>> webDrivers = ThreadLocal.withInitial(HashMap::new);
@@ -31,14 +31,14 @@ public class DriverManager {
         webDriverManager = WebDriverManager.getInstance(driverType.toUpperCase());
         webDriverManager.setup();
         AllureManager.setAllureInfo(executor);
-        logger.info("Started WebDriverManager");
+        LOGGER.info("Started WebDriverManager");
     }
 
     public WebDriver getDriver(String driverName) {
         Map<String, WebDriver> drivers = webDrivers.get();
         WebDriver driver = drivers.get(driverName);
         if (driver == null) {
-            logger.error(">>>>>>>>>> GET DRIVER <<<<<<<<<<");
+            LOGGER.error(">>>>>>>>>> GET DRIVER <<<<<<<<<<");
             driver = webDriverManager.create();
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(timeout));
             if (maximize) {
